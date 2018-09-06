@@ -113,7 +113,7 @@ xLearn 命令行接口使用指南
          4 -- factorization machines (FM)
          5 -- field-aware factorization machines (FFM)
 
-对于 LR 和 FM，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM，我们的输入数据必须是 ``libffm`` 格式. ::
+对于 LR 和 FM 算法，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式. ::
 
   libsvm format:
 
@@ -127,11 +127,7 @@ xLearn 命令行接口使用指南
 
      label field_1:index_1:value_1 field_2:index_2:value_2 ...
 
-
-
-Note that, if the csv file doesn't contain the label ``y``, the user should add a 
-``placeholder`` to the dataset by themselves (Also in test data). Otherwise, xLearn 
-will treat the first element as the label ``y``. 
+注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其添加一个占位符（同样针对测试数据）。否则，xLearn 会将第一个元素视为 ``y``.
 
 Users can also give a ``libffm`` file to LR and FM task. At that time, xLearn will 
 treat this data as ``libsvm`` format. The following command shows how to use different
@@ -141,7 +137,7 @@ machine learning algorithms to solve the binary classification problem:  ::
 ./xlearn_train ./small_train.txt -s 1  # Factorization machine (FM)
 ./xlearn_train ./small_train.txt -s 2  # Field-awre factorization machine (FFM)
 
-Set Validation Dataset
+设置 Validation Dataset（验证集）
 ----------------------------------------
 
 A validation dataset is used to tune the hyper-parameters of a machine learning model. 
