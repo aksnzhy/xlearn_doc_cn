@@ -26,7 +26,7 @@ Quick Start
         9            0.405954                0.00
        10            0.396313                0.00
 
-By default, xLearn uses the logistic regression (LR) to train the model for 10 epoch.
+在默认的情况下，xLearn 会使用 logistic regression (LR) 来训练我们的模型（in 10 epoch）。
 
 We can see that a new file called ``small_train.txt.model`` has been generated in the current directory. 
 This file stores the trained model checkpoint, and we can use this model file to make a prediction in 
