@@ -79,43 +79,45 @@
 
 .. __: https://github.com/aksnzhy/xlearn
 
-Install xLearn from Source Code
+从源码安装 xLearn
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Building xLearn from source code consists two steps.
+从源码安装 xLearn 分为两个步骤：
 
 First, you need to build the executable files (``xlearn_train`` and ``xlearn_predict``), as well as the 
 shared library (``libxlearn_api.so`` for Linux or ``libxlearn_api.dylib`` for Mac OSX) from the C++ code.
 
-Then, you can install the Python package through ``install-python.sh``.
+首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。
 
-Fortunately, we write a script ``build.sh`` to do all the cumbersome work for users. 
+之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库.
 
-You just need to clone the code from github ::
+幸运的是，我们已经写好了一个脚本 ``build.sh`` 来帮助用户做所有的安装工作。
+
+用户只需要从 Github 上 clone 下 xLearn 源代码 ::
 
   git clone https://github.com/aksnzhy/xlearn.git
 
-and then build xLearn using the folloing commands: ::
+然后通过以下命令进行编译和安装: ::
 
   cd xlearn
   sudo ./build.sh
 
-You may be asked to input your password during installation.
+在安装过程中用户可能会被要求输入管理员账户密码。
 
-Test Your Building
+检测安装是否成功
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you can test your installation by using the following command: ::
+用户可以通过如下命令检查 xLearn 是否安装成功: ::
 
   cd build
   ./run_example.sh
 
-You can also test the Python package by using the following command: ::
+用户可以通过如下命令检测 xLearn Python 库是否安装成功: ::
 
   cd python-package/test
   python test_python.py
 
-Install R Package
+安装 R 库
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The R package installation guide is coming soon.
