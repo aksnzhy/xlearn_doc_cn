@@ -19,22 +19,19 @@ xLearn 是一款高性能的，易用的，并且可扩展的机器学习库，�
 
 我们接下来快速展示如何在一个小型样例 （Criteo 广告点击预测数据）上使用 xLearn 来解决二分类问题。  
 
-安装
+安装 xLearn
 ^^^^^^^^^^^^^^
 
 xLearn 最简单的安装方法是使用 ``pip`` . 下面的命令将会下载 xLearn 的源代码，并且在你的本地机器上编译和安装。 ::
 
     sudo pip install xlearn
 
-The installation process will take a while to complete. After that you can use the following 
-script in your python shell to check whether the xLearn has been installed successfully:
-
 上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功。 ::
 
   >>> import xlearn as xl
   >>> xl.hello()
 
-如果安装成果，用户会看到如下显示 ::
+如果安装成功，用户会看到如下显示 ::
 
   -------------------------------------------------------------------------
            _
@@ -48,9 +45,8 @@ script in your python shell to check whether the xLearn has been installed succe
   -------------------------------------------------------------------------
 
 
-If you meet any installation problem, or you want to build the latest code from Github, or you want to use 
-the xLearn command line instead of the python API, you can see how to build xLearn from source code 
-in `Installation Guide`__.
+如果你在安装的过程中遇到了任何问题，或者你希望自己通过在 Github 上最新的源代码进行手动编译，或者你想使用 xLearn 的命令行界面，你可以
+从这里（`Installation Guide`__）查看如何对 xLearn 进行手动编译和安装。
 
 .. __: ./install/index.html
 
