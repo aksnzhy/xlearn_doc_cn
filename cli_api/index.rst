@@ -293,7 +293,7 @@ Users can disable early-stopping by using ``--dis-es`` option ::
 
 At this time, xLearn performed completed 10 epoch for training.
 
-无锁学习
+无锁 (Lock-free) 学习
 ----------------------------------------
 
 By default, xLearn performs *Hogwild! lock-free* learning, which takes advantages of multiple cores of modern CPU to 
