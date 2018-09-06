@@ -32,7 +32,7 @@ Quick Start
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model
 
-运行上述命令之后，我们在当前文件夹下得到了一个新的文件 ``small_test.txt.out``。这是我们进行预测任务的输出。我们可以通过如下命令显示这个文件的前几行数据 ::
+运行上述命令之后，我们在当前文件夹下得到了一个新的文件 ``small_test.txt.out``。这是我们进行预测任务的输出。我们可以通过如下命令显示这个文件的前几行数据: ::
     
     head -n 5 ./small_test.txt.out
 
@@ -42,10 +42,7 @@ Quick Start
     -0.170811
     -1.28986
 
-These lines of data is the prediction score calculated for each example in the test set. The 
-negative data represents the negative example and positive data represents the positive example. 
-In xLearn, you can convert the score to (0-1) by using ``--sigmoid`` option, and also you can convert 
-your result to binary result (0 and 1) by using ``--sign`` option ::
+这里每一行的分数都对应了测试数据中的一行样本。负数代表负样本，正数代表正样本（在这个例子中没有）。在 xLearn 中，用户可以将分数通过 ``--sigmoid`` 选项转换到（0-1）之间，还可以使用 ``--sign`` 选项将其转换成 0 和 1。::
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model --sigmoid
     head -n 5 ./small_test.txt.out
@@ -65,17 +62,15 @@ your result to binary result (0 and 1) by using ``--sign`` option ::
     0
     0
 
-Users may want to generate different model files (by using different hyper-parameters), so users can 
-set the name of the model checkpoint file by using ``-m`` option. By default, the name of the model 
-file is ``training_data_name`` + ``.model`` ::
+用户可以通过设置不同的超参数来生成不同的模型，通过 ``-m`` 选项来制定这些输出模型的名字。在默认的情况下，模型文件的名字是 ``training_data_name`` + ``.model`` ::
 
   ./xlearn_train ./small_train.txt -m new_model
 
-Also, users can save the model in ``TXT`` format by using ``-t`` option. For example: ::
+用户还可以通过 ``-t`` 选项将模型输出成可读的 ``TXT`` 格式，例如：::
 
   ./xlearn_train ./small_train.txt -t model.txt
 
-After that, we can get a new file called ``model.txt``, which stores the trained model in ``TXT`` format. ::
+运行上述命令我们可以看到在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的模型。::
 
   head -n 5 ./model.txt
 
