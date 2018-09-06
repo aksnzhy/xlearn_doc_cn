@@ -1,10 +1,9 @@
-Installation Guide
+详细安装指南
 ----------------------------------
 
-For now, xLearn can support both Linux and Mac OS X. We will support it on the Windows platform in the near 
-future. This page gives instructions on how to build and install the xLearn package using pip and how to build 
-it from source code. No matter what way you choose, make sure that your OS has already installed ``GCC`` or ``Clang`` 
-(with the support of ``C++ 11``) and ``CMake``. 
+目前 xLearn 可以支持 Linux 和 Mac OS X 平台，我们将在后续支持 Windows 平台。这个页面介绍了如何通过 pip 安装 xLearn，并且详细介绍了如何
+手动编译并安装 xLearn 源代码。无论你使用哪种方法安装 xLearn，请确保你的机器上已经安装了支持 C++11 的编译器，例如 ``GCC`` 或者 ``Clang`` 。
+除此之外，您还需要提前安装好 ``CMake``.
 
 Install GCC or Clang
 ^^^^^^^^^^^^^^^^^^^^^^^^
