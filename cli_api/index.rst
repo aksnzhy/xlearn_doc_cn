@@ -7,14 +7,12 @@ xLearn 命令行接口使用指南
 Quick Start
 ----------------------------------------
 
-Make sure that you are in the ``build`` directory of xLearn, and you can find the demo data 
-``small_test.txt`` and ``small_train.txt`` in this directory. Now we can type the following 
-command to train a model: ::
+确保你现在正在 xLearn 的 ``build`` 文件夹下，你可以在该文件夹下看见 ``small_test.txt`` 和 ``small_train.txt`` 这两个数据集。我们使用以下命令
+进行模型训练：::
 
     ./xlearn_train ./small_train.txt
 
-Here, we show a portion of the output in this task. Note that the loss value shown in your 
-machine could be different with the following result. ::
+下面是一部分程序的输出。注意，这里的 loss 值可能和你本地计算出的 loss 值不完全一样。 ::
 
     Epoch      Train log_loss     Time cost (sec)
         1            0.567514                0.00
