@@ -325,7 +325,7 @@ In thie time, our result are *determinnistic*. ::
 
 The disadvantage of ``--dis-lock-free`` is that it is *much slower* than lock-free training. 
 
-Instance-wise Normalization
+Instance-wise 规则化
 ----------------------------------------
 
 For FM and FFM, xLearn uses *instance-wise normalizarion* by default. In some scenes like CTR prediction, this technique is very
