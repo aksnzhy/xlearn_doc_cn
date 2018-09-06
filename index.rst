@@ -6,7 +6,7 @@
 欢迎使用 xLearn !
 ===============================
 
-xLearn 是一款高性能，易用的，并且可扩展的机器学习库，你可以用它来解决大规模机器学习问题，尤其是大规模稀疏数据机器学习问题。在近年来，
+xLearn 是一款高性能的，易用的，并且可扩展的机器学习库，你可以用它来解决大规模机器学习问题，尤其是大规模稀疏数据机器学习问题。在近年来，
 大规模稀疏数据机器学习被广泛应用在广告点击率预测、推荐系统等领域。如果你是 liblinear、libfm、libffm 的用户，那么现在 xLearn 将是你
 更好的选择，因为 xLearn 几乎囊括了这些系统的全部功能，并且具有更好的性能和可扩展性。
 
@@ -14,11 +14,10 @@ xLearn 是一款高性能，易用的，并且可扩展的机器学习库，你�
     :width: 650  
 
 
-A Quick Example
+快速开始
 ----------------------------------
 
-This is a quick start tutorial showing snippets for you to quickly try out xLearn on a small demo dataset 
-(Criteo CTR prediction) for a binary classification task.
+我们接下来快速展示如何在在一个小型样例 （Criteo 广告点击预测数据）上使用 xLearn 来解决二分类问题。  
 
 Installation
 ^^^^^^^^^^^^^^
