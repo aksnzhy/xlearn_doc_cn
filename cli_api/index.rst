@@ -4,7 +4,7 @@ xLearn 命令行接口使用指南
 如果你已经编译并安装好 xLearn，你会在当前的 ``build`` 文件夹下看见 ``xlearn_train`` 和 ``xlearn_predict`` 两个可执行文件，它们可以
 被用来进行模型训练和模型预测。
 
-Quick Start
+快速开始
 ----------------------------------------
 
 确保你现在正在 xLearn 的 ``build`` 文件夹下，你可以在该文件夹下看见 ``small_test.txt`` 和 ``small_train.txt`` 这两个数据集。我们使用以下命令
