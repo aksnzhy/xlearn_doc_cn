@@ -42,7 +42,7 @@ Quick Start
     -0.170811
     -1.28986
 
-这里每一行的分数都对应了测试数据中的一行样本。负数代表负样本，正数代表正样本（在这个例子中没有）。在 xLearn 中，用户可以将分数通过 ``--sigmoid`` 选项转换到（0-1）之间，还可以使用 ``--sign`` 选项将其转换成 0 和 1。::
+这里每一行的分数都对应了测试数据中的一行样本。负数代表负样本，正数代表正样本（在这个例子中没有）。在 xLearn 中，用户可以将分数通过 ``--sigmoid`` 选项转换到（0-1）之间，还可以使用 ``--sign`` 选项将其转换成 0 和 1: ::
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model --sigmoid
     head -n 5 ./small_test.txt.out
@@ -70,7 +70,7 @@ Quick Start
 
   ./xlearn_train ./small_train.txt -t model.txt
 
-运行上述命令我们可以看到在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的模型。::
+运行上述命令我们可以看到在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的模型: ::
 
   head -n 5 ./model.txt
 
@@ -80,10 +80,9 @@ Quick Start
   0
   0
 
-For the linear and bias term, we store each parameter in each line. For FM and FFM, we store each 
-vector of the latent factor in each line.
+对于线性模型来说，``TXT`` 格式的模型将每一个模型参数存储在一行。对于 FM 和 FFM，模型将每一个 latent vector 存储在一行。
 
-Users can also set ``-o`` option to specify the output file. For example: ::
+用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如：::
 
   ./xlearn_predict ./small_test.txt ./small_train.txt.model -o output.txt  
   head -n 5 ./output.txt
@@ -94,9 +93,10 @@ Users can also set ``-o`` option to specify the output file. For example: ::
   -0.170979
   -1.28849
 
-By default, the name of the output file is ``test_data_name`` + ``.out`` .
+在默认的情况下，输出文件的路径格式是 ``test_data_name`` + ``.out`` .
 
-Choose Machine Learning Algorithm
+
+选择机器学习算法
 ----------------------------------------
 
 For now, xLearn can support three different machine learning algorithms, including linear model, 
