@@ -1,9 +1,8 @@
-xLearn Command Line Guide
+xLearn 命令行接口使用指南
 ===============================
 
-Once you built xLearn from source code successfully, you can get two executable files 
-(``xlearn_train`` and ``xlearn_predict``) in your ``build`` directory. Now you can use these 
-two executable files to perform training and prediction tasks.
+如果你已经编译并安装好 xLearn，你会在当前的 ``build`` 文件夹下看见 ``xlearn_train`` 和 ``xlearn_predict`` 两个可执行文件，它们可以
+被用来进行模型训练和模型预测。
 
 Quick Start
 ----------------------------------------
