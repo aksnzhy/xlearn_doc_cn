@@ -1,4 +1,4 @@
-xLearn Python Package Guide
+xLearn Python API 使用指南
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 xLearn supports easy-to-use Python API for users. Once you install the 

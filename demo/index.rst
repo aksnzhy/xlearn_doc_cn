@@ -1,4 +1,4 @@
-xLearn Demo
+xLearn 样例程序
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Copyright of the dataset belongs to the original copyright holder.
