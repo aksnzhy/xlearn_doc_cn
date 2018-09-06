@@ -28,14 +28,11 @@ Quick Start
 
 在默认的情况下，xLearn 会使用 logistic regression (LR) 来训练我们的模型（in 10 epoch）。
 
-We can see that a new file called ``small_train.txt.model`` has been generated in the current directory. 
-This file stores the trained model checkpoint, and we can use this model file to make a prediction in 
-the future ::
+我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测。::
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model
 
-After that, we can get a new file called ``small_test.txt.out`` in the current directory. This is the output 
-of prediction. Here we show the first five lines of this output by using the following command ::
+运行上述命令之后，我们在当前文件夹下得到了一个新的文件 ``small_test.txt.out``。这是我们进行预测任务的输出。我们可以通过如下命令显示这个文件的前几行数据 ::
     
     head -n 5 ./small_test.txt.out
 
