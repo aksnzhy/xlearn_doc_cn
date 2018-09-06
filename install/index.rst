@@ -5,69 +5,63 @@
 手动编译并安装 xLearn 源代码。无论你使用哪种方法安装 xLearn，请确保你的机器上已经安装了支持 C++11 的编译器，例如 ``GCC`` 或者 ``Clang`` 。
 除此之外，您还需要提前安装好 ``CMake``.
 
-Install GCC or Clang
+安装 GCC 或 Clang
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have already installed your C++ compiler before, you can skip this step.
+如果你已经安装了支持 C++ 11 的编译器，请忽略此节内容。
 
-* On Cygwin, run ``setup.exe`` and install ``gcc`` and ``binutils``.
-* On Debian/Ubuntu Linux, type the command: ::
+* 在 Cygwin 上, 运行 ``setup.exe`` 并安装 ``gcc`` 和 ``binutils``.
+* 在 Debian/Ubuntu Linux 上, 输入如下命令: ::
 
       sudo apt-get install gcc binutils 
 
-  to install GCC (or Clang) by using :: 
+  安装 GCC (或者 Clang) :: 
 
       sudo apt-get install clang 
 
-* On FreeBSD, type the following command to install Clang :: 
+* 在 FreeBSD 上, 输入以下命令安装 Clang :: 
 
       sudo pkg_add -r clang 
 
-* On Mac OS X, install ``XCode`` gets you Clang.
+* 在 Mac OS X, 安装 ``XCode`` 来获得 Clang.
 
 
-Install CMake
+安装 CMake
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have already installed CMake before, you can skip this step.
+如果你已经安装了 CMake，请忽略此节内容。
 
-To install CMake from binary packages:
-
-* On Cygwin, run ``setup.exe`` and install cmake.
-* On Debian/Ubuntu Linux, type the command to install cmake: ::
+* 在 Cygwin 上, 运行 ``setup.exe`` 并安装 cmake.
+* 在 Debian/Ubuntu Linux 上, 输入以下命令安装 cmake: ::
 
       sudo apt-get install cmake
 
-* On FreeBSD, type the command: ::
+* 在 FreeBSD 上, 输入以下命令: ::
    
       sudo pkg_add -r cmake
 
-On Mac OS X, if you have ``homebrew``, you can use the command :: 
+在 Mac OS X, 如果你安装了 ``homebrew``, 输入以下命令 :: 
 
      brew install cmake
 
-or if you have ``MacPorts``, run :: 
+或者你安装了 ``MacPorts``, 输入以下命令 :: 
 
      sudo port install cmake
 
-You won't want to have both Homebrew and MacPorts installed.
 
-
-Install xLearn from pip
+通过 pip 安装 xLearn
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The easiest way to install xLearn Python package is to use ``pip``. The following command will 
-download the xLearn source code from pip and install Python package locally.  ::
+安装 xLearn 最简单的方法是使用 ``pip``. 如下命令会下载 xLearn 源代码，并在你的本地计算机进行编译和安转 ::
 
     sudo pip install xlearn
 
-The installation process will take a while to complete. After that, you can type the following script 
-in your python shell to check whether the xLearn has been installed successfully:
+上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功。 ::
 
->>> import xlearn as xl
->>> xl.hello()
+  >>> import xlearn as xl
+  >>> xl.hello()
 
-You will see: ::
+如果安装成功，你会看到如下显示: ::
 
   -------------------------------------------------------------------------
            _
@@ -80,9 +74,8 @@ You will see: ::
         xLearn   -- 0.31 Version --
   -------------------------------------------------------------------------
 
-If you want to build the latest code from `Github`__, or you want to use the xLearn command line 
-instead of the Python API, you can see how to build xLearn from source code as follow. *We highly
-recommend that you can build xLearn from source code.*
+如果你在安装的过程中遇到了任何问题，或者你希望自己通过在 `Github`__ 上最新的源代码进行手动编译，或者你想使用 xLearn 的命令行界面，下面的
+章节将会介绍如何从源码手动编译并安装 xLearn。*我们强烈建议你尝试从源码编译安装 xLearn*。
 
 .. __: https://github.com/aksnzhy/xlearn
 
