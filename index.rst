@@ -31,7 +31,7 @@ xLearn 最简单的安装方法是使用 ``pip`` . 下面的命令将会下载 x
   >>> import xlearn as xl
   >>> xl.hello()
 
-如果安装成功，用户会看到如下显示 ::
+如果安装成功，用户会看到如下显示: ::
 
   -------------------------------------------------------------------------
            _
@@ -50,10 +50,10 @@ xLearn 最简单的安装方法是使用 ``pip`` . 下面的命令将会下载 x
 
 .. __: ./install/index.html
 
-Python Demo
+Python 样例
 ^^^^^^^^^^^^^^
 
-Here is a simple Python demo no how to use xLearn for a binary classification problem:
+下面的 Python 代码展示了如何使用 xLearn 来处理机器学习二分类任务： 
 
 .. code-block:: python
 
@@ -83,12 +83,11 @@ Here is a simple Python demo no how to use xLearn for a binary classification pr
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-This example shows how to use *field-aware factorizations machine (ffm)* to solve a 
-simple binary classification task. You can check out the demo data 
-(``small_train.txt`` and ``small_test.txt``) from the path ``demo/classification/criteo_ctr``.
+上述样例通过使用 *field-aware factorizations machine (ffm)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
+路径下找到我们所使用的样例数据 (``small_train.txt`` and ``small_test.txt``)。
 
 
-Link to the Other Helpful Resources
+其他资源链接
 ----------------------------------------
 
 .. toctree::
