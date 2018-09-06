@@ -82,7 +82,7 @@ xLearn 命令行接口使用指南
 
 对于线性模型来说，``TXT`` 格式的模型将每一个模型参数存储在一行。对于 FM 和 FFM，模型将每一个 latent vector 存储在一行。
 
-用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如：::
+用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如 ::
 
   ./xlearn_predict ./small_test.txt ./small_train.txt.model -o output.txt  
   head -n 5 ./output.txt
@@ -99,10 +99,9 @@ xLearn 命令行接口使用指南
 选择机器学习算法
 ----------------------------------------
 
-For now, xLearn can support three different machine learning algorithms, including linear model, 
-factorization machine (FM), and field-aware factorization machine (FFM).
+目前，xLearn 可以支持三种不同的机器学习算法，包括了线性模型（LR）、factorization machine (FM)，以及 field-aware factorization machine (FFM)。
 
-Users can choose different machine learning algorithms by using ``-s`` option: ::
+用户可以通过 ``-s`` 选项来选择不同的算法: ::
 
   -s <type> : Type of machine learning model (default 0)
      for classification task:
@@ -114,8 +113,7 @@ Users can choose different machine learning algorithms by using ``-s`` option: :
          4 -- factorization machines (FM)
          5 -- field-aware factorization machines (FFM)
 
-For LR and FM, the input data format can be ``CSV`` or ``libsvm``. For FFM, the 
-input data should be the ``libffm`` format. ::
+对于 LR 和 FM，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM，我们的输入数据必须是 ``libffm`` 格式. ::
 
   libsvm format:
 
@@ -128,6 +126,8 @@ input data should be the ``libffm`` format. ::
   libffm format:
 
      label field_1:index_1:value_1 field_2:index_2:value_2 ...
+
+
 
 Note that, if the csv file doesn't contain the label ``y``, the user should add a 
 ``placeholder`` to the dataset by themselves (Also in test data). Otherwise, xLearn 
