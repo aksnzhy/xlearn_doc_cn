@@ -3,14 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Get Started with xLearn !
+欢迎使用 xLearn !
 ===============================
 
-xLearn is a high-performance, easy-to-use, and scalable machine learning package, which can be used to 
-solve large-scale machine learning problems, especially for the problems on large-scale sparse data, which 
-is very common in scenes like CTR prediction and recommender system. If you are the user of liblinear, libfm, 
-or libffm, now xLearn is your another better choice. This is because xLearn handles all of these models in a 
-uniform framework and provides better performance and scalability compared to its competitors.
+xLearn 是一款高性能，易用的，并且可扩展的机器学习库，你可以用它来解决大规模机器学习问题，尤其是大规模稀疏数据机器学习问题。在近年来，
+大规模稀疏数据机器学习被广泛应用在广告点击率预测、推荐系统等领域。如果你是 liblinear、libfm、libffm 的用户，那么现在 xLearn 将是你
+更好的选择，因为 xLearn 几乎囊括了这些系统的全部功能，并且具有更好的性能和可扩展性。
 
 .. image:: ./images/speed.png
     :width: 650  
