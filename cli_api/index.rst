@@ -178,7 +178,7 @@ For regression problems, the metric can be ``mae``, ``mape``, and ``rmsd`` (rmse
 Note that, in the above example we use cross-validation by using ``--cv`` option, which will be 
 introduced in the next section.
 
-Cross-Validation
+交叉验证
 ----------------------------------------
 
 Cross-validation, sometimes called rotation estimation, is a model validation technique for assessing 
@@ -201,7 +201,7 @@ the end of its output message. ::
     [ ACTION     ] Clear the xLearn environment ...
     [------------] Total time cost: 0.03 (sec)
 
-Choose Optimization Method
+选择优化算法
 ----------------------------------------
  
 In xLearn, users can choose different optimization methods by using ``-p`` option. For now, xLearn 
@@ -219,7 +219,7 @@ dealing with sparse data. In addition, ``sgd`` is more sensitive to the learning
 ``FTRL`` (Follow-the-Regularized-Leader) is also a famous method that has been widely used in the large-scale 
 sparse problem. To use FTRL, users need to tune more hyper-parameters compared with ``sgd`` and ``adagrad``. 
 
-Hyper-parameter Tuning
+超参数调优
 ----------------------------------------
 
 In machine learning, a *hyper-parameter* is a parameter whose value is set before the learning process begins. 
@@ -262,7 +262,7 @@ For FM and FFM, users can also set the hyper-parameter ``-u`` for model initiali
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.40
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.10
 
-Set Epoch Number and Early-Stopping
+迭代次数 & 提前结束
 ----------------------------------------
 
 For machine learning tasks, one epoch consists of one full training cycle on the training set. 
@@ -293,7 +293,7 @@ Users can disable early-stopping by using ``--dis-es`` option ::
 
 At this time, xLearn performed completed 10 epoch for training.
 
-Lock-Free Learning
+无锁学习
 ----------------------------------------
 
 By default, xLearn performs *Hogwild! lock-free* learning, which takes advantages of multiple cores of modern CPU to 
@@ -335,7 +335,7 @@ useful. But sometimes it hurts model performance. Users can disable instance-wis
 
 Note that we usually use ``--no-norm`` in regression tasks.
 
-Quiet Training
+安静模式
 ----------------------------------------
 
 When using ``--quiet`` option, xLearn will not calculate any evaluation information during the training, and 
