@@ -166,7 +166,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x f1
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x auc
 
-对于回归任务而言，评价指标包括：``mae``, ``mape``, and ``rmsd`` (rmse). 例如: ::
+对于回归任务而言，评价指标包括：``mae``, ``mape``, and ``rmsd`` (或者 ``rmse`` ). 例如: ::
 
     cd demo/house_price/
     ../../xlearn_train ./house_price_train.txt -s 3 -x rmse --cv
