@@ -141,12 +141,11 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 设置 Validation Dataset（验证集）
 ----------------------------------------
 
-A validation dataset is used to tune the hyper-parameters of a machine learning model. 
-In xLearn, users can use ``-v`` option to set the validation dataset. For example: ::
+在机器学习中，我们可以通过 Validation Dataset （验证集）来进行超参数调优。在 xLearn 中，用户可以使用 ``-v`` 来指定验证数据集。例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt    
 
-A portion of xLearn's output: ::
+下面是程序的一部分输出: ::
 
     Epoch      Train log_loss       Test log_loss     Time cost (sec)
         1            0.575049            0.530560                0.00
@@ -159,25 +158,21 @@ A portion of xLearn's output: ::
         8            0.416492            0.541107                0.00
         9            0.404554            0.546218                0.00
 
-Here we can see that the training loss continuously goes down. But the validation loss (test loss) goes down 
-first, and then goes up. This is because the model has already overfitted current training dataset. By default, 
-xLearn will calculate the validation loss in each epoch, while users can also set different evaluation metrics by 
-using ``-x`` option. For classification problems, the metric can be : ``acc`` (accuracy), ``prec`` (precision), 
-``f1`` (f1 score), ``auc`` (AUC score). For example: ::
+我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss （test loss）则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), 
+``f1`` (f1 score), ``auc`` (AUC score). 例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x acc
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x prec
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x f1
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x auc
 
-For regression problems, the metric can be ``mae``, ``mape``, and ``rmsd`` (rmse). For example: ::
+对于回归任务而言，评价指标包括：``mae``, ``mape``, and ``rmsd`` (rmse). 例如: ::
 
     cd demo/house_price/
     ../../xlearn_train ./house_price_train.txt -s 3 -x rmse --cv
     ../../xlearn_train ./house_price_train.txt -s 3 -x rmsd --cv
 
-Note that, in the above example we use cross-validation by using ``--cv`` option, which will be 
-introduced in the next section.
+注意，这里我们通过设置 ``--cv`` 选项使用了 cross-validation （交叉验证），我们将在下一节详细介绍该功能。
 
 交叉验证
 ----------------------------------------
