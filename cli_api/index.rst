@@ -250,33 +250,31 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
 迭代次数 & 提前结束
 ----------------------------------------
 
-For machine learning tasks, one epoch consists of one full training cycle on the training set. 
-In xLearn, users can set the number of epoch for training by using ``-e`` option. ::
+在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量。::
 
     ./xlearn_train ./small_train.txt -e 3
     ./xlearn_train ./small_train.txt -e 5
     ./xlearn_train ./small_train.txt -e 10   
 
-If you set the validation data, xLearn will perform early-stopping by default. For example: ::
+如果用户设置了 validation dataset（验证集），xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping （提前停止）。例如: ::
   
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10
 
-Here, we set epoch number to ``10``, but xLearn stopped at epoch ``7`` because we get the best model 
-at that epoch (you may get different a stopping number on your local machine) ::
+在上述命令中，我们设置 epoch 的大小为 ``10``，但是 xLearn 会在第 ``7`` 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）。::
 
    ...
   [ ACTION     ] Early-stopping at epoch 7
   [ ACTION     ] Start to save model ...
 
-Users can set the ``window size`` for early stopping by using ``-sw`` option. ::
+用户可以通过 ``-sw`` 来设置提前停止机制的窗口大小。即，``-sw=2`` 意味着如果在后两轮之内都没有比当前更好的验证结果，则在当前轮提前停止。::
 
     ./xlearn_train ./small_train.txt -e 10 -v ./small_test.txt -sw 3
 
-Users can disable early-stopping by using ``--dis-es`` option ::
+用户还可以通过 ``--dis-es`` 选项来禁止 early-stopping: ::
 
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10 --dis-es
 
-At this time, xLearn performed completed 10 epoch for training.
+在上述命令中，xLearn 将进行完整的 10 轮 epoch 训练。
 
 无锁 (Lock-free) 学习
 ----------------------------------------

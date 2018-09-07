@@ -84,9 +84,6 @@
 
 从源码安装 xLearn 分为两个步骤：
 
-First, you need to build the executable files (``xlearn_train`` and ``xlearn_predict``), as well as the 
-shared library (``libxlearn_api.so`` for Linux or ``libxlearn_api.dylib`` for Mac OSX) from the C++ code.
-
 首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。
 
 之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库.
