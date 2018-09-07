@@ -212,41 +212,36 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 超参数调优
 ----------------------------------------
 
-In machine learning, a *hyper-parameter* is a parameter whose value is set before the learning process begins. 
-By contrast, the value of other parameters is derived via training. Hyper-parameter tuning is the problem of 
-choosing a set of optimal hyper-parameters for a learning algorithm.
+在机器学习中，*hyper-parameter* （超参数）是指在训练之前设置的参数，2而模型参数是指在训练过程中更新的参数。超参数调优通常是机器学习训练不可避免的一个环节。
 
-First, the ``learning rate`` is one of the most important hyper-parameters used in machine learning. 
-By default, this value is set to ``0.2`` in xLearn, and we can tune this value by using ``-r`` option: ::
+首先，``learning rate`` （学习速率）是机器学习中的一个非常重要的超参数，用来控制每次模型更新的步长。在默认的情况下，这个值在 xLearn 中被设置为 ``0.2``，用户可以通过 ``-r`` 选项来改变这个值: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.5
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.01
 
-We can also use the ``-b`` option to perform regularization. By default, xLearn uses ``L2`` regularization, and 
-the *regular_lambda* has been set to ``0.00002``. ::
+用户还可以通过 ``-b`` 来控制 regularization （正则项）。xLearn 使用 ``L2`` 正则项，这个值 *regular_lambda* 被默认设置为 ``0.00002``. ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1 -b 0.001
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1 -b 0.002
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1 -b 0.01
 
 
-For the ``FTRL`` method, we also need to tune another four hyper-parameters, including ``-alpha``, ``-beta``, 
-``-lambda_1``, and ``-lambda_2``. For example: ::
+对于 ``FTRL`` 算法来说，除了学习速率和正则项，我们还需要调节其他的超参数，包括：``-alpha``, ``-beta``, 
+``-lambda_1``, and ``-lambda_2``. 例如: ::
 
     ./xlearn_train ./small_train.txt -p ftrl -alpha 0.002 -beta 0.8 -lambda_1 0.001 -lambda_2 1.0
 
-For FM and FFM, users also need to set the size of *latent factor* by using ``-k`` option. By default, xLearn 
-uses ``4`` for this value. ::
+对于 FM 和 FFM 模型，用户需要通过 ``-k`` 选项来设置 *latent factor* （隐向量）的大小。在默认的情况下，xLearn 将其设置为 ``4``. ::
 
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 2
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 4
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 5
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 8
 
-xLearn uses *SSE* instruction to accelerate vector operation, and hence the time cost for ``k=2`` and ``k=4`` are the same.
+xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向量长度为 4 的运算，因此将 ``k=2`` 和 ``k=4`` 所需的运算时间是相同的。
 
-For FM and FFM, users can also set the hyper-parameter ``-u`` for model initialization. By default, this value is set to 0.66. ::
+除此之外，对于 FM 和 FFM，用户可以通过设置超参数 ``-u`` 来调节模型的初始化。在默认的情况下，这个值被设置为 ``0.66``. ::
 
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.80
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.40
