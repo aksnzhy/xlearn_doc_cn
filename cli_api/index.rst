@@ -129,13 +129,11 @@ xLearn 命令行接口使用指南
 
 注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其添加一个占位符（同样针对测试数据）。否则，xLearn 会将第一个元素视为 ``y``.
 
-Users can also give a ``libffm`` file to LR and FM task. At that time, xLearn will 
-treat this data as ``libsvm`` format. The following command shows how to use different
-machine learning algorithms to solve the binary classification problem:  ::
+LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的 ``libsvm`` 项并将其视为 ``libsvm`` 格式。如下命令展示了如何选择不同的机器学习算法: ::
 
-./xlearn_train ./small_train.txt -s 0  # Linear model (GLM)
-./xlearn_train ./small_train.txt -s 1  # Factorization machine (FM)
-./xlearn_train ./small_train.txt -s 2  # Field-awre factorization machine (FFM)
+  ./xlearn_train ./small_train.txt -s 0  # Linear model (GLM)
+  ./xlearn_train ./small_train.txt -s 1  # Factorization machine (FM)
+  ./xlearn_train ./small_train.txt -s 2  # Field-awre factorization machine (FFM)
 
 设置 Validation Dataset（验证集）
 ----------------------------------------
