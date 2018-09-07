@@ -207,9 +207,6 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 相比于传统的 ``sgd`` （随机梯度下降）算法，``adagrad`` 可以自适应的调整学习速率 learning rate，对于不常用的参数进行大的更新，对于常用的参数进行小的更新。
 正因如此，``adagrad`` 常用语稀疏数据的优化问题上。除此之外，相比于 ``adagrad``，``sgd`` 对学习速率更敏感，这增加了用户调参的难度。
 
-``FTRL`` (Follow-the-Regularized-Leader) is also a famous method that has been widely used in the large-scale 
-sparse problem. To use FTRL, users need to tune more hyper-parameters compared with ``sgd`` and ``adagrad``. 
-
 ``FTRL`` (Follow-the-Regularized-Leader) 同样被广泛应用于大规模稀疏数据的优化问题上。相比于 SGD 和 Adagrad，使用 FTRL 用户需要调试更多的超参数。
 
 超参数调优
