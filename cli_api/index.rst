@@ -309,21 +309,15 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
 Instance-wise 归一化
 ----------------------------------------
 
-For FM and FFM, xLearn uses *instance-wise normalizarion* by default. In some scenes like CTR prediction, this technique is very
-useful. But sometimes it hurts model performance. Users can disable instance-wise normalization by using ``--no-norm`` option ::
+对于 FM 和 FFM 来说，xLearn 会默认使用 *instance-wise normalizarion*. 在一些大规模稀疏数据的场景（例如 CTR 预估），这一技术非常的有效。但是有些时候它也会影响模型的准确率。用户可以通过设置 ``--no-norm`` 来关掉 *instance-wise normalizarion*: ::
 
   ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt --no-norm
-
-Note that we usually use ``--no-norm`` in regression tasks.
 
 安静模式
 ----------------------------------------
 
-When using ``--quiet`` option, xLearn will not calculate any evaluation information during the training, and 
-it will just train the model quietly ::
+xLearn 的训练支持 *安静模式，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以极大的提高训练速度: ::
 
   ./xlearn_train ./small_train.txt --quiet
 
-In this way, xLearn can accelerate its training speed significantly.
-
-xLearn can also support Python API, and we will introduce it in the next section.
+xLearn 还可以支持 Python API，我们将在下一节详细介绍。
