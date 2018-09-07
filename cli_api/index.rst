@@ -177,19 +177,16 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 交叉验证
 ----------------------------------------
 
-Cross-validation, sometimes called rotation estimation, is a model validation technique for assessing 
-how the results of a statistical analysis will generalize to an independent dataset. In xLearn, users 
-can use the ``--cv`` option to use this technique. For example: ::
+在机器学习中，cross-validation （交叉验证）是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
+选项来使用交叉验证功能。例如: ::
 
     ./xlearn_train ./small_train.txt --cv
 
-On default, xLearn uses 5-folds cross validation, and users can set the number of fold by using 
-``-f`` option: ::
+在默认的情况下，xLearn 使用 5-folds 交叉验证（即将数据集平均分成 5 份），用户也可以通过 ``-f`` 选项来指定数据划分的份数。例如: ::
     
     ./xlearn_train ./small_train.txt -f 3 --cv
 
-Here we set the number of folds to ``3``. The xLearn will calculate the average validation loss at 
-the end of its output message. ::
+上述命令将数据集划分成为 3 份。xLearn 会在最后计算平均的 validation loss. ::
 
      ...
     [------------] Average log_loss: 0.549417
