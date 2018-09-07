@@ -141,7 +141,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 设置 Validation Dataset（验证集）
 ----------------------------------------
 
-在机器学习中，我们可以通过 Validation Dataset （验证集）来进行超参数调优。在 xLearn 中，用户可以使用 ``-v`` 来指定验证数据集。例如: ::
+在机器学习中，我们可以通过 Validation Dataset （验证集）来进行超参数调优。在 xLearn 中，用户可以使用 ``-v`` 来指定验证数据集，例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt    
 
@@ -159,7 +159,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
         9            0.404554            0.546218                0.00
 
 我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss （test loss）则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), 
-``f1`` (f1 score), ``auc`` (AUC score). 例如: ::
+``f1`` (f1 score), ``auc`` (AUC score)，例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x acc
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x prec
@@ -178,15 +178,15 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 ----------------------------------------
 
 在机器学习中，cross-validation （交叉验证）是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
-选项来使用交叉验证功能。例如: ::
+选项来使用交叉验证功能，例如: ::
 
     ./xlearn_train ./small_train.txt --cv
 
-在默认的情况下，xLearn 使用 5-folds 交叉验证（即将数据集平均分成 5 份），用户也可以通过 ``-f`` 选项来指定数据划分的份数。例如: ::
+在默认的情况下，xLearn 使用 5-folds 交叉验证（即将数据集平均分成 5 份），用户也可以通过 ``-f`` 选项来指定数据划分的份数，例如: ::
     
     ./xlearn_train ./small_train.txt -f 3 --cv
 
-上述命令将数据集划分成为 3 份。xLearn 会在最后计算平均的 validation loss. ::
+上述命令将数据集划分成为 3 份。xLearn 会在最后计算平均的 validation loss: ::
 
      ...
     [------------] Average log_loss: 0.549417
@@ -198,7 +198,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 ----------------------------------------
  
 在 xLearn 中，用户可以通过 ``-p`` 选项来选择使用不同的优化算法。目前，xLearn 支持 ``sgd``, ``adagrad``, 以及 ``ftrl`` 这三种优化算法。
-在默认的情况下，xLearn 使用 ``adagrad`` 优化算法。::
+在默认的情况下，xLearn 使用 ``adagrad`` 优化算法: ::
 
     ./xlearn_train ./small_train.txt -p sgd
     ./xlearn_train ./small_train.txt -p adagrad
@@ -220,7 +220,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.5
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.01
 
-用户还可以通过 ``-b`` 来控制 regularization （正则项）。xLearn 使用 ``L2`` 正则项，这个值 *regular_lambda* 被默认设置为 ``0.00002``. ::
+用户还可以通过 ``-b`` 来控制 regularization （正则项）。xLearn 使用 ``L2`` 正则项，这个值 *regular_lambda* 被默认设置为 ``0.00002``: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1 -b 0.001
     ./xlearn_train ./small_train.txt -v ./small_test.txt -r 0.1 -b 0.002
@@ -232,7 +232,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 
     ./xlearn_train ./small_train.txt -p ftrl -alpha 0.002 -beta 0.8 -lambda_1 0.001 -lambda_2 1.0
 
-对于 FM 和 FFM 模型，用户需要通过 ``-k`` 选项来设置 *latent factor* （隐向量）的大小。在默认的情况下，xLearn 将其设置为 ``4``. ::
+对于 FM 和 FFM 模型，用户需要通过 ``-k`` 选项来设置 *latent factor* （隐向量）的大小。在默认的情况下，xLearn 将其设置为 ``4``: ::
 
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 2
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -k 4
@@ -241,7 +241,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 
 xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向量长度为 4 的运算，因此将 ``k=2`` 和 ``k=4`` 所需的运算时间是相同的。
 
-除此之外，对于 FM 和 FFM，用户可以通过设置超参数 ``-u`` 来调节模型的初始化。在默认的情况下，这个值被设置为 ``0.66``. ::
+除此之外，对于 FM 和 FFM，用户可以通过设置超参数 ``-u`` 来调节模型的初始化。在默认的情况下，这个值被设置为 ``0.66``: ::
 
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.80
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.40
@@ -250,23 +250,23 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
 迭代次数 & 提前结束
 ----------------------------------------
 
-在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量。::
+在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量: ::
 
     ./xlearn_train ./small_train.txt -e 3
     ./xlearn_train ./small_train.txt -e 5
     ./xlearn_train ./small_train.txt -e 10   
 
-如果用户设置了 validation dataset（验证集），xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping （提前停止）。例如: ::
+如果用户设置了 validation dataset（验证集），xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping （提前停止），例如: ::
   
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10
 
-在上述命令中，我们设置 epoch 的大小为 ``10``，但是 xLearn 会在第 ``7`` 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）。::
+在上述命令中，我们设置 epoch 的大小为 ``10``，但是 xLearn 会在第 7 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）: ::
 
    ...
   [ ACTION     ] Early-stopping at epoch 7
   [ ACTION     ] Start to save model ...
 
-用户可以通过 ``-sw`` 来设置提前停止机制的窗口大小。即，``-sw=2`` 意味着如果在后两轮之内都没有比当前更好的验证结果，则在当前轮提前停止。::
+用户可以通过 ``-sw`` 来设置提前停止机制的窗口大小。即，``-sw=2`` 意味着如果在后两轮之内都没有比当前更好的验证结果，则在当前轮提前停止: ::
 
     ./xlearn_train ./small_train.txt -e 10 -v ./small_test.txt -sw 3
 
@@ -279,9 +279,7 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
 无锁 (Lock-free) 学习
 ----------------------------------------
 
-By default, xLearn performs *Hogwild! lock-free* learning, which takes advantages of multiple cores of modern CPU to 
-accelerate training task. But lock-free training is *non-deterministic*. For example, if we run the following command 
-multiple times, we may get different loss value at each epoch. ::
+在默认情况下，xLearn 会进行 *Hogwild!* 无锁学习，该方法通过 CPU 多核进行并行计算，提高 CPU 利用率，加快算法收敛速度。但是，该无锁算法是非确定性的算法（ *non-deterministic*）。例如，如果我们多次运行如下的命令，我们会在每一次运行得到不同的 loss 结果: ::
 
    ./xlearn_train ./small_train.txt 
 
@@ -290,23 +288,23 @@ multiple times, we may get different loss value at each epoch. ::
    The 3nd time: 0.396187
    ...
 
-Users can set the number of thread for xLearn by using ``-nthread`` option: ::
+用户可以通过 ``-nthread`` 选项来设置使用 CPU 核心的数量，例如: ::
 
    ./xlearn_train ./small_train.txt -nthread 2
 
-If you don't set this option, xLearn uses all of the CPU cores by default.
+如果你不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。
 
-Users can disable lock-free training by using ``--dis-lock-free`` ::
+用户可以通过设置 ``--dis-lock-free`` 选项禁止多核无锁训练: ::
 
   ./xlearn_train ./small_train.txt --dis-lock-free
 
-In thie time, our result are *determinnistic*. ::
+这时，xLearn 计算的结果是确定性的（*determinnistic*）: ::
 
    The 1st time: 0.396372
    The 2nd time: 0.396372
    The 3nd time: 0.396372
 
-The disadvantage of ``--dis-lock-free`` is that it is *much slower* than lock-free training. 
+使用 ``--dis-lock-free`` 的缺点是这样训练速度会比无锁训练慢很多。
 
 Instance-wise 归一化
 ----------------------------------------
