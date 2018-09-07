@@ -1,14 +1,12 @@
 xLearn Python API 使用指南
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-xLearn supports easy-to-use Python API for users. Once you install the 
-xLearn Python package successfully, you can try it. Type ``python`` in your
-shell and use the following Python code to check your installation: ::
+xLearn 支持简单易用的 Python API，在使用之前确保你已经成功安装 xLearn Python Package。输入 ``python`` 进入 Python shell，然后输入如下 Python 代码来检查是否成功安装 xLearn Python Package: ::
 
     import xlearn as xl
     xl.hello()
 
-If you install xLearn Python package successfully, you will see ::
+如果你已经成功安装了 Python Package，你将会看到: ::
 
   -------------------------------------------------------------------------
            _
@@ -21,11 +19,10 @@ If you install xLearn Python package successfully, you will see ::
         xLearn   -- 0.31 Version --
   -------------------------------------------------------------------------
 
-Quick Start
+快速开始
 ----------------------------------------
 
-Here is a simple Python demo to show that how to use xLearn python API. You can checkout the 
-demo data (``small_train.txt`` and ``small_test.txt``) from the path ``demo/classification/criteo_ctr``.
+如下的 Python 代码展示如何使用 xLearn Python API，你可以在 ``demo/classification/criteo_ctr`` 路径下找到样例数据 (``small_train.txt`` and ``small_test.txt``).
 
 .. code-block:: python
 
@@ -44,7 +41,7 @@ demo data (``small_train.txt`` and ``small_test.txt``) from the path ``demo/clas
    # Train model
    ffm_model.fit(param, "./model.out")  
 
-A portion of the xLearn's output ::
+以下是 xLearn 的部分输出: ::
   
    ...
  [ ACTION     ] Start to train ...
@@ -61,9 +58,7 @@ A portion of the xLearn's output ::
  [  100%      ]    10            0.448725                0.00
  [ ACTION     ] Start to save model ...
 
-In this example, xLearn uses *feild-ware factorization machines* (ffm) for solving a binary 
-classification task. If you want train a model for regression task, you can reset the ``task`` 
-parameter to ``reg``. ::
+在上述例子中，xLearn 使用 *feild-ware factorization machines* (ffm) 来解决一个机器学习二分类问题。如果想解决回归（regression）问题，用户可以通过设置 ``task`` 参数为 ``reg`` 来完成: ::
 
     param = {'task':'reg', 'lr':0.2, 'lambda':0.002} 
 
