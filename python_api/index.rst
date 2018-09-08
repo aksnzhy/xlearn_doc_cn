@@ -207,9 +207,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 交叉验证
 ----------------------------------------
 
-Cross-validation, sometimes called rotation estimation, is a model validation technique for assessing how the results 
-of a statistical analysis will generalize to an independent dataset. In xLearn, users can use the ``cv()`` API to use 
-this technique. For example: ::
+在机器学习中，cross-validation （交叉验证）是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``cv()`` API 来使用交叉验证功能，例如: ::
 
     import xlearn as xl
 
@@ -219,8 +217,7 @@ this technique. For example: ::
             
     ffm_model.cv(param)
 
-On default, xLearn uses 5-folds cross validation, and users can set the number of fold by 
-using the ``fold`` parameter: ::
+在默认的情况下，xLearn 使用 5-folds 交叉验证（即将数据集平均分成 5 份），用户也可以通过 ``fold`` 参数来指定数据划分的份数，例如: ::
 
     import xlearn as xl
 
@@ -230,8 +227,7 @@ using the ``fold`` parameter: ::
             
     ffm_model.cv(param)     
 
-Here we set the number of folds to ``3``. The xLearn will calculate the average validation loss at the 
-end of its output message. ::
+上述代码将数据集划分成为 3 份。xLearn 会在最后计算平均的 validation loss: ::
 
   [------------] Average log_loss: 0.549758
   [ ACTION     ] Finish Cross-Validation
@@ -241,60 +237,47 @@ end of its output message. ::
 选择优化算法
 ----------------------------------------
 
-In xLearn, users can choose different optimization methods by using ``opt`` parameter. For now, 
-xLearn can support ``sgd``, ``adagrad``, and ``ftrl`` method. By default, xLearn uses the ``adagrad`` method. 
-For example: ::
+在 xLearn 中，用户可以通过  ``opt`` 参数来选择使用不同的优化算法。目前，xLearn 支持 ``SGD``, ``adagrad``, 以及 ``ftrl`` 这三种优化算法。 在默认的情况下，xLearn 使用 ``adagrad`` 优化算法: ::
 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'sgd'} 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'adagrad'} 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'ftrl'} 
 
-Compared to traditional ``sgd`` method, ``adagrad`` adapts the learning rate to the parameters, performing larger 
-updates for infrequent and smaller updates for frequent parameters. For this reason, it is well-suited for dealing 
-with sparse data. In addition, ``sgd`` is more sensitive to the learning rate compared with ``adagrad``.
+相比于传统的 ``SGD`` （随机梯度下降）算法，adagrad 可以自适应的调整学习速率 learning rate，对于不常用的参数进行大的更新，对于常用的参数进行小的更新。 正因如此，adagrad 常用语稀疏数据的优化问题上。除此之外，相比于 adagrad，sgd 对学习速率更敏感，这增加了用户调参的难度。
 
-``FTRL`` (Follow-the-Regularized-Leader) is also a famous method that has been widely used in the large-scale sparse 
-problem. To use FTRL, users need to tune more hyperparameters compared with ``sgd`` and ``adagard``.
+FTRL (Follow-the-Regularized-Leader) 同样被广泛应用于大规模稀疏数据的优化问题上。相比于 SGD 和 Adagrad，使用 FTRL 用户需要调试更多的超参数。
 
 超参数调优
 ----------------------------------------
 
-In machine learning, a hyper-parameter is a parameter whose value is set before the learning process begins. 
-By contrast, the value of other parameters is derived via training. Hyper-parameter tuning is the problem of 
-choosing a set of optimal hyper-parameters for a learning algorithm.
+在机器学习中，hyper-parameter （超参数）是指在训练之前设置的参数，而模型参数是指在训练过程中更新的参数。超参数调优通常是机器学习训练不可避免的一个环节。
 
-First, the ``learning rate`` is one of the most important hyperparameters used in machine learning. By default, 
-this value is set to ``0.2`` in xLearn, and we can tune this value by using ``lr`` parameter: ::
+首先，``learning rate`` （学习速率）是机器学习中的一个非常重要的超参数，用来控制每次模型更新的步长。在默认的情况下，这个值在 xLearn 中被设置为 ``0.2``，用户可以通过 ``lr`` 参数来改变这个值: ::
 
     param = {'task':'binary', 'lr':0.2} 
     param = {'task':'binary', 'lr':0.5}
     param = {'task':'binary', 'lr':0.01}
 
-We can also use the ``lambda`` parameter to perform regularization. By default, xLearn uses ``L2`` regularization, 
-and the *regular_lambda* has been set to ``0.00002``. ::
+用户还可以通过 ``lambda`` 参数来控制 regularization （正则项）。xLearn 使用 ``L2`` 正则项，这个值 regular_lambda 被默认设置为 ``0.00002``: ::
 
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.02} 
     param = {'task':'binary', 'lr':0.2, 'lambda':0.002} 
 
-For the ``FTRL`` method, we also need to tune another four hyper-parameters, 
-including ``alpha``, ``beta``, ``lambda_1``, and ``lambda_2``. For example: ::
+对于 FTRL 算法来说，除了学习速率和正则项，我们还需要调节其他的超参数，包括：``alpha``, ``beta``, ``lambda_1``, 以及 ``lambda_2``. 例如: ::
 
     param = {'alpha':0.002, 'beta':0.8, 'lambda_1':0.001, 'lambda_2': 1.0}
 
-For FM and FFM, users also need to set the size of latent factor by using ``k`` parameter. By default, 
-xLearn uses ``4`` for this value. ::
+对于 FM 和 FFM 模型，用户需要通过 ``k`` 参数来设置 latent factor （隐向量）的大小。在默认的情况下，xLearn 将其设置为 ``4``: ::
 
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':2}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':4}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':5}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':8}
 
-xLearn uses *SSE* instruction to accelerate vector operation, and hence the time cost 
-for ``k=2`` and ``k=4`` are the same.     
+xLearn 使用了 SSE 指令来加速向量运算，该指令会同时进行向量长度为 4 的运算，因此将 ``k=2`` 和 ``k=4`` 所需的运算时间是相同的。  
 
-For FM and FFM, users can also set the parameter ``init`` for model initialization. 
-By default, this value is set to ``0.66``. ::
+除此之外，对于 FM 和 FFM，用户可以通过设置超参数 ``init`` 来调节模型的初始化。在默认的情况下，这个值被设置为``0.66``: ::
 
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'init':0.80}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'init':0.40}
