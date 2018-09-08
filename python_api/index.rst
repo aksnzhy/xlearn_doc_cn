@@ -286,14 +286,13 @@ xLearn 使用了 SSE 指令来加速向量运算，该指令会同时进行向�
 迭代次数 & 提前结束
 ----------------------------------------
 
-For machine learning tasks, one epoch consists of one full training cycle on the training set. In xLearn, 
-users can set the number of epoch for training by using ``epoch`` parameter. ::
+在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``epoch`` 参数来设置 epoch 的数量: ::
 
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'epoch':3}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'epoch':5}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'epoch':10}
 
-If you set the validation data, xLearn will perform early-stopping by default. For example: ::
+如果用户设置了 validation dataset（验证集），xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping （提前停止），例如: ::
 
    import xlearn as xl
 
@@ -304,13 +303,12 @@ If you set the validation data, xLearn will perform early-stopping by default. F
             
    ffm_model.fit(param, "./model.out") 
 
-Here, we set epoch number to ``10``, but xLearn stopped at epoch ``7`` because we get the best model 
-at that epoch (you may get different a stopping number on your local machine) ::
+在上述命令中，我们设置 epoch 的大小为 10，但是 xLearn 会在第 7 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）::
 
     Early-stopping at epoch 7
     Start to save model ...
 
-Users can set ``window size`` for early-stopping by using ``stop_window`` parameter ::
+用户可以通过 ``stop_window`` 参数来设置提前停止机制的窗口大小。即，``stop_window=2`` 意味着如果在后两轮之内都没有比当前更好的验证结果，则在当前轮提前停止: ::
 
     param = {'task':'binary',  'lr':0.2, 
              'lambda':0.002, 'epoch':10,
@@ -318,7 +316,7 @@ Users can set ``window size`` for early-stopping by using ``stop_window`` parame
             
     ffm_model.fit(param, "./model.out") 
 
-Users can also disable early-stopping by using ``disableEarlyStop()`` API: ::
+用户还可以通过 ``disableEarlyStop()`` 方法来禁止 early-stopping: ::
 
    import xlearn as xl
 
@@ -330,7 +328,7 @@ Users can also disable early-stopping by using ``disableEarlyStop()`` API: ::
             
    ffm_model.fit(param, "./model.out") 
 
-At this time, xLearn performed completed 10 epoch for training.
+在上述命令中，xLearn 将进行完整的 10 轮 epoch 训练。
 
 无锁（Lock-free）学习
 ----------------------------------------
