@@ -8,7 +8,7 @@ xLearn 命令行接口使用指南
 ----------------------------------------
 
 确保你现在正在 xLearn 的 ``build`` 文件夹下，你可以在该文件夹下看见 ``small_test.txt`` 和 ``small_train.txt`` 这两个数据集。我们使用以下命令
-进行模型训练：::
+进行模型训练: ::
 
     ./xlearn_train ./small_train.txt
 
