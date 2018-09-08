@@ -134,8 +134,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 选择机器学习算法
 ----------------------------------------
 
-For now, xLearn can support three different machine learning algorithms, including linear model, 
-factorization machine (FM), and field-aware factorization machine (FFM). ::
+目前，xLearn 可以支持三种不同的机器学习算法，包括了线性模型（LR）、factorization machine (FM)，以及 field-aware factorization machine (FFM). ::
    
     import xlearn as xl
 
@@ -144,8 +143,7 @@ factorization machine (FM), and field-aware factorization machine (FFM). ::
     lr_model = xl.create_linear()
 
 
-For LR and FM, the input data format can be ``CSV`` or ``libsvm``. For FFM, the input data should 
-be the ``libffm`` format. ::
+对于 LR 和 FM 算法，我们的输入数据格式必须是 CSV 或者 libsvm. 对于 FFM 算法，我们的输入数据必须是 libffm 格式. ::
 
   libsvm format:
 
@@ -159,17 +157,15 @@ be the ``libffm`` format. ::
 
     label field_1:index_1:value_1 field_2:index_2:value_2 ...
 
-Note that, if the csv file doesn’t contain the label ``y``, user should add a ``placeholder`` to the dataset 
-by themselves (Also in test data). Otherwise, xLearn will treat the first element as the label ``y``.
+注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其添加一个占位符（同样针对测试数据）。否则，xLearn 会将第一个元素视为 ``y``.
 
-In addtion, users can also give a ``libffm`` file to LR and FM task. At that time, 
-xLearn will treat this data as ``libsvm`` format. 
+LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的 ``field`` 项并将其视为 ``libsvm`` 格式。
+
 
 设置 Validation Dataset （验证集）
 ----------------------------------------
 
-A validation dataset is used to tune the hyper-parameters of a machine learning model. In xLearn, users can 
-use ``setValdiate()`` API to set the validation dataset. For example: ::
+在机器学习中，我们可以通过 Validation Dataset （验证集）来进行超参数调优。在 xLearn 中，用户可以使用 ``setValdiate()`` 来指定验证数据集，例如: ::
 
    import xlearn as xl
 
@@ -180,7 +176,7 @@ use ``setValdiate()`` API to set the validation dataset. For example: ::
             
    ffm_model.fit(param, "./model.out") 
 
-A portion of xLearn's output: ::
+下面是程序的一部分输出: ::
 
   [ ACTION     ] Start to train ...
   [------------] Epoch      Train log_loss       Test log_loss     Time cost (sec)
@@ -195,17 +191,14 @@ A portion of xLearn's output: ::
   [   90%      ]     9            0.455787            0.538841                0.00
   [ ACTION     ] Early-stopping at epoch 7
 
-goes down first, and then goes up. This is because the model has already overfitted current training dataset. 
-By default, xLearn will calculate the validation loss in each epoch, while users can also set different evaluation 
-metrics by using ``-x`` option. For classification problems, the metric can be : ``acc`` (accuracy), ``prec`` (precision), 
-``f1`` (f1 score), and ``auc`` (AUC score). For example: ::
+我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss （test loss）则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``AUC``，例如:
 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'acc'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'prec'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'f1'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'auc'}           
 
-For regression problems, the metric can be ``mae``, ``mape``, and ``rmsd`` (rmse). For example: ::
+对于回归任务而言，评价指标包括：mae, mape, and rmsd (或者 rmse ). 例如: ::
 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'rmse'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'mae'}    
