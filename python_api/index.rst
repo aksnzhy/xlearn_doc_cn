@@ -62,15 +62,12 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 
     param = {'task':'reg', 'lr':0.2, 'lambda':0.002} 
 
-We can see that a new file called ``model.out`` has been generated in the current directory. 
-This file stores the trained model checkpoint, and we can use this model file to make a prediction 
-in the future: ::
+我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测。 ::
 
     ffm_model.setTest("./small_test.txt")
     ffm_model.predict("./model.out", "./output.txt")      
 
-After we run this Python code, we can get a new file called ``output.txt`` in current directory. 
-This is output prediction. Here we show the first five lines of this output by using the following command ::
+运行上述代码之后，我们在当前文件夹下得到了一个新的文件 ``output.txt``，这是我们进行预测任务的输出。我们可以通过如下命令显示这个文件的前几行数据: ::
 
     head -n 5 ./output.txt
 
@@ -80,15 +77,13 @@ This is output prediction. Here we show the first five lines of this output by u
     -0.38465
     -1.15343
 
-These lines of data are the prediction score calculated for each example in the test set. The negative data 
-represents the negative example and positive data represents the positive example. In xLearn, you can convert 
-the score to (0-1) by using ``setSigmoid()`` method: ::
+这里每一行的分数都对应了测试数据中的一行样本。负数代表负样本，正数代表正样本（在这个例子中没有）。在 xLearn 中，用户可以将分数通过 ``setSigmoid`` API 转换到（0-1）之间: ::
 
    ffm_model.setSigmoid()
    ffm_model.setTest("./small_test.txt")  
    ffm_model.predict("./model.out", "./output.txt")      
 
-and then we can get the result ::
+结果如下 ::
 
    head -n 5 ./output.txt
 
@@ -98,13 +93,13 @@ and then we can get the result ::
   0.414588
   0.250373
 
-We can also convert the score to binary result ``(0 and 1)`` by using ``setSign()`` method ::
+还可以使用 ``setSign()`` API 将其转换成 0 和 1: ::
 
    ffm_model.setSign()
    ffm_model.setTest("./small_test.txt")  
    ffm_model.predict("./model.out", "./output.txt")
 
-and then we can get the result ::
+结果如下: ::
 
    head -n 5 ./output.txt
 
@@ -114,14 +109,17 @@ and then we can get the result ::
    0
    0
 
-Also, users can save the model in ``TXT`` format by using ``setTXTModel()`` method. For example: ::
+模型输出
+----------------------------------------
+
+用户可以使用 ``setTXTModel()`` 方法来输出 ``TXT`` 格式的模型文件。例如：::
 
     ffm_model.setSign()
     ffm_model.setTXTModel("./model.txt")
     ffm_model.setTest("./small_test.txt")  
     ffm_model.predict("./model.out", "./output.txt")
 
-After that, we get a new file called ``model.txt``, which stores the trained model in ``TXT`` format.::
+运行上述代码我们可以看到在当前文件夹下生成了一个新的文件 model.txt，这个文件存储着 TXT 格式的模型: ::
 
   head -n 5 ./model.txt
 
@@ -131,10 +129,9 @@ After that, we get a new file called ``model.txt``, which stores the trained mod
   0
   0
 
-For the linear and bias term, we store each parameter in each line. For FM and FFM, 
-we store each vector of the latent factor in each line.
+对于线性模型来说，TXT 格式的模型将每一个模型参数存储在一行。对于 FM 和 FFM，模型将每一个 latent vector 存储在一行。
 
-Choose Machine Learning Algorithm
+选择机器学习算法
 ----------------------------------------
 
 For now, xLearn can support three different machine learning algorithms, including linear model, 
@@ -168,7 +165,7 @@ by themselves (Also in test data). Otherwise, xLearn will treat the first elemen
 In addtion, users can also give a ``libffm`` file to LR and FM task. At that time, 
 xLearn will treat this data as ``libsvm`` format. 
 
-Set Validation Dataset
+设置 Validation Dataset （验证集）
 ----------------------------------------
 
 A validation dataset is used to tune the hyper-parameters of a machine learning model. In xLearn, users can 
@@ -214,7 +211,7 @@ For regression problems, the metric can be ``mae``, ``mape``, and ``rmsd`` (rmse
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'mae'}    
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'mape'}  
 
-Cross-Validation
+交叉验证
 ----------------------------------------
 
 Cross-validation, sometimes called rotation estimation, is a model validation technique for assessing how the results 
@@ -248,7 +245,7 @@ end of its output message. ::
   [ ACTION     ] Clear the xLearn environment ...
   [------------] Total time cost: 0.05 (sec)
 
-Choose Optimization Method
+选择优化算法
 ----------------------------------------
 
 In xLearn, users can choose different optimization methods by using ``opt`` parameter. For now, 
@@ -266,7 +263,7 @@ with sparse data. In addition, ``sgd`` is more sensitive to the learning rate co
 ``FTRL`` (Follow-the-Regularized-Leader) is also a famous method that has been widely used in the large-scale sparse 
 problem. To use FTRL, users need to tune more hyperparameters compared with ``sgd`` and ``adagard``.
 
-Hyper-parameter Tuning
+超参数调优
 ----------------------------------------
 
 In machine learning, a hyper-parameter is a parameter whose value is set before the learning process begins. 
@@ -310,7 +307,7 @@ By default, this value is set to ``0.66``. ::
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'init':0.40}
     param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'init':0.10}
   
-Set Epoch Number and Early-Stopping
+迭代次数 & 提前结束
 ----------------------------------------
 
 For machine learning tasks, one epoch consists of one full training cycle on the training set. In xLearn, 
@@ -359,7 +356,7 @@ Users can also disable early-stopping by using ``disableEarlyStop()`` API: ::
 
 At this time, xLearn performed completed 10 epoch for training.
 
-Lock-Free Learning
+无锁（Lock-free）学习
 ----------------------------------------
 
 By default, xLearn performs Hogwild! lock-free learning, which takes advantages of multiple cores of 
@@ -407,7 +404,7 @@ In this time, our result are *deterministic*. ::
 
 The disadvantage of ``disableLockFree()`` is that it is much slower than lock-free training.
 
-Instance-wise Normalization
+Instance-wise 归一化
 ----------------------------------------
 
 For FM and FFM, xLearn uses *instance-wise normalizarion* by default. In some scenes like CTR prediction, 
@@ -425,7 +422,7 @@ normalization by using ``disableNorm()`` API. ::
 
 Note that we usually use ``disableNorm()`` in regression tasks.
 
-Quiet Training
+安静模式
 ----------------------------------------
 
 When using ``setQuiet()`` API, xLearn will not calculate any evaluation information during 
