@@ -22,7 +22,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 快速开始
 ----------------------------------------
 
-如下的 Python 代码展示如何使用 xLearn Python API，你可以在 ``demo/classification/criteo_ctr`` 路径下找到样例数据 (``small_train.txt`` and ``small_test.txt``).
+如下的 Python 代码展示如何使用 xLearn Python API，你可以在 ``demo/classification/criteo_ctr`` 路径下找到样例数据 (``small_train.txt`` and ``small_test.txt``):
 
 .. code-block:: python
 
@@ -62,7 +62,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 
     param = {'task':'reg', 'lr':0.2, 'lambda':0.002} 
 
-我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测。 ::
+我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测: ::
 
     ffm_model.setTest("./small_test.txt")
     ffm_model.predict("./model.out", "./output.txt")      
@@ -83,7 +83,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
    ffm_model.setTest("./small_test.txt")  
    ffm_model.predict("./model.out", "./output.txt")      
 
-结果如下 ::
+结果如下: ::
 
    head -n 5 ./output.txt
 
@@ -112,7 +112,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 模型输出
 ----------------------------------------
 
-用户可以使用 ``setTXTModel()`` 方法来输出 ``TXT`` 格式的模型文件。例如：::
+用户可以使用 ``setTXTModel()`` 方法来输出 ``TXT`` 格式的模型文件。例如: ::
 
     ffm_model.setSign()
     ffm_model.setTXTModel("./model.txt")
@@ -134,7 +134,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
 选择机器学习算法
 ----------------------------------------
 
-目前，xLearn 可以支持三种不同的机器学习算法，包括了线性模型（LR）、factorization machine (FM)，以及 field-aware factorization machine (FFM). ::
+目前，xLearn 可以支持三种不同的机器学习算法，包括了线性模型（LR）、factorization machine (FM)，以及 field-aware factorization machine (FFM): ::
    
     import xlearn as xl
 
@@ -143,7 +143,7 @@ xLearn 支持简单易用的 Python API，在使用之前确保你已经成功�
     lr_model = xl.create_linear()
 
 
-对于 LR 和 FM 算法，我们的输入数据格式必须是 CSV 或者 libsvm. 对于 FFM 算法，我们的输入数据必须是 libffm 格式. ::
+对于 LR 和 FM 算法，我们的输入数据格式必须是 CSV 或者 libsvm. 对于 FFM 算法，我们的输入数据必须是 libffm 格式: ::
 
   libsvm format:
 
@@ -191,7 +191,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
   [   90%      ]     9            0.455787            0.538841                0.00
   [ ACTION     ] Early-stopping at epoch 7
 
-我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss （test loss）则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``AUC``，例如:
+我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss （test loss）则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``AUC``，例如: ::
 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'acc'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'prec'}
@@ -303,7 +303,7 @@ xLearn 使用了 SSE 指令来加速向量运算，该指令会同时进行向�
             
    ffm_model.fit(param, "./model.out") 
 
-在上述命令中，我们设置 epoch 的大小为 10，但是 xLearn 会在第 7 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）::
+在上述命令中，我们设置 epoch 的大小为 10，但是 xLearn 会在第 7 轮提前停止训练（你可能在你的本地计算机上会得到不同的轮次）: ::
 
     Early-stopping at epoch 7
     Start to save model ...

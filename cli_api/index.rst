@@ -7,8 +7,7 @@ xLearn 命令行接口使用指南
 快速开始
 ----------------------------------------
 
-确保你现在正在 xLearn 的 ``build`` 文件夹下，你可以在该文件夹下看见 ``small_test.txt`` 和 ``small_train.txt`` 这两个数据集。我们使用以下命令
-进行模型训练: ::
+确保你现在正在 xLearn 的 ``build`` 文件夹下，你可以在该文件夹下看见 ``small_test.txt`` 和 ``small_train.txt`` 这两个数据集。我们使用以下命令进行模型训练: ::
 
     ./xlearn_train ./small_train.txt
 
@@ -28,7 +27,7 @@ xLearn 命令行接口使用指南
 
 在默认的情况下，xLearn 会使用 logistic regression (LR) 来训练我们的模型（in 10 epoch）。
 
-我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测。::
+我们可以看见，训练过后在当前文件夹下产生了一个叫 ``small_train.txt.model`` 的新文件。这个文件用来存储训练后的模型，我们可以用这个模型在未来进行预测: ::
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model
 
@@ -65,11 +64,11 @@ xLearn 命令行接口使用指南
 模型输出
 ----------------------------------------
 
-用户可以通过设置不同的超参数来生成不同的模型，通过 ``-m`` 选项来制定这些输出模型的名字。在默认的情况下，模型文件的名字是 ``training_data_name`` + ``.model`` ::
+用户可以通过设置不同的超参数来生成不同的模型，通过 ``-m`` 选项来制定这些输出模型的名字。在默认的情况下，模型文件的名字是 ``training_data_name`` + ``.model`` : ::
 
   ./xlearn_train ./small_train.txt -m new_model
 
-用户还可以通过 ``-t`` 选项将模型输出成可读的 ``TXT`` 格式，例如：::
+用户还可以通过 ``-t`` 选项将模型输出成可读的 ``TXT`` 格式，例如: ::
 
   ./xlearn_train ./small_train.txt -t model.txt
 
@@ -85,7 +84,7 @@ xLearn 命令行接口使用指南
 
 对于线性模型来说，``TXT`` 格式的模型将每一个模型参数存储在一行。对于 FM 和 FFM，模型将每一个 latent vector 存储在一行。
 
-用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如 ::
+用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如: ::
 
   ./xlearn_predict ./small_test.txt ./small_train.txt.model -o output.txt  
   head -n 5 ./output.txt
@@ -116,7 +115,7 @@ xLearn 命令行接口使用指南
          4 -- factorization machines (FM)
          5 -- field-aware factorization machines (FFM)
 
-对于 LR 和 FM 算法，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式. ::
+对于 LR 和 FM 算法，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式: ::
 
   libsvm format:
 
