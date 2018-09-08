@@ -333,9 +333,7 @@ xLearn 使用了 SSE 指令来加速向量运算，该指令会同时进行向�
 无锁（Lock-free）学习
 ----------------------------------------
 
-By default, xLearn performs Hogwild! lock-free learning, which takes advantages of multiple cores of 
-modern CPU to accelerate training task. But lock-free training is non-deterministic. For example, if we 
-run the following command multiple times, we may get different loss value at each epoch. ::
+在默认情况下，xLearn 会进行 Hogwild! 无锁学习，该方法通过 CPU 多核进行并行计算，提高 CPU 利用率，加快算法收敛速度。但是，该无锁算法是非确定性的算法（ non-deterministic）。例如，如果我们多次运行如下的命令，我们会在每一次运行得到不同的 loss 结果: ::
 
    import xlearn as xl
 
@@ -349,7 +347,7 @@ run the following command multiple times, we may get different loss value at eac
    The 2nd time: 0.449302
    The 3nd time: 0.449185
 
-Users can set the number of thread for xLearn by using ``nthread`` parameter: ::
+用户可以通过 ``nthread`` 参数来设置使用 CPU 核心的数量，例如: ::
 
    import xlearn as xl
 
@@ -359,7 +357,9 @@ Users can set the number of thread for xLearn by using ``nthread`` parameter: ::
             
    ffm_model.fit(param, "./model.out") 
 
-Users can also disable lock-free training by using ``disableLockFree()`` API. ::
+如果你不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。
+
+用户可以通过设置 ``disableLockFree()`` API 禁止多核无锁训练: ::
 
    import xlearn as xl
 
@@ -370,20 +370,18 @@ Users can also disable lock-free training by using ``disableLockFree()`` API. ::
             
    ffm_model.fit(param, "./model.out") 
 
-In this time, our result are *deterministic*. ::
+这时，xLearn 计算的结果是确定性的（determinnistic）: ::
 
    The 1st time: 0.449172
    The 2nd time: 0.449172
    The 3nd time: 0.449172
 
-The disadvantage of ``disableLockFree()`` is that it is much slower than lock-free training.
+使用 ``disableLockFree()`` 的缺点是这样训练速度会比无锁训练慢很多。
 
 Instance-wise 归一化
 ----------------------------------------
 
-For FM and FFM, xLearn uses *instance-wise normalizarion* by default. In some scenes like CTR prediction, 
-this technique is very useful. But sometimes it hurts model performance. Users can disable instance-wise 
-normalization by using ``disableNorm()`` API. ::
+对于 FM 和 FFM 来说，xLearn 会默认使用 instance-wise normalizarion. 在一些大规模稀疏数据的场景（例如 CTR 预估），这一技术非常的有效。但是有些时候它也会影响模型的准确率。用户可以通过设置 ``disableNorm()`` API 来关掉 instance-wise 归一化: ::
 
    import xlearn as xl
 
@@ -394,13 +392,10 @@ normalization by using ``disableNorm()`` API. ::
             
    ffm_model.fit(param, "./model.out") 
 
-Note that we usually use ``disableNorm()`` in regression tasks.
-
 安静模式
 ----------------------------------------
 
-When using ``setQuiet()`` API, xLearn will not calculate any evaluation information during 
-the training, and it just train the model quietly ::
+xLearn 通过``setQuiet()`` API 来支持 *安静模式* 训练，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以极大的提高训练速度: ::
 
    import xlearn as xl
 
@@ -411,12 +406,10 @@ the training, and it just train the model quietly ::
             
    ffm_model.fit(param, "./model.out") 
 
-In this way, xLearn can accelerate its training speed significantly.
-
 Scikit-learn API
 ----------------------------------------
 
-xLearn can support scikit-learn-like api for users. Here is an example: ::
+xLearn 还可以支持 Scikit-learn API: ::
 
   import numpy as np
   import xlearn as xl
@@ -451,9 +444,5 @@ xLearn can support scikit-learn-like api for users. Here is an example: ::
 
   # Generate predictions
   y_pred = linear_model.predict(X_val)
-
-In this example, we use linear model to train a binary classifier. We can also 
-create FM and FFM by using ``xl.FMModel()`` and ``xl.FMModel()`` . Please see 
-the details of these examples in (`Link`__)
 
 .. __: https://github.com/aksnzhy/xlearn/tree/master/demo/classification/scikit_learn_demo
