@@ -151,40 +151,42 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 设置 Validation Dataset（验证集）
 ----------------------------------------
 
-在机器学习中，我们可以通过 Validation Dataset (验证集) 来进行超参数调优。在 xLearn 中，用户可以使用 ``-v`` 来指定验证数据集，例如: ::
+在机器学习中，我们可以通过 Validation Dataset (验证集) 来进行超参数调优。在 xLearn 中，用户可以使用 ``-v`` 选项来指定验证集文件，例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt    
 
 下面是程序的一部分输出: ::
 
-    Epoch      Train log_loss       Test log_loss     Time cost (sec)
-        1            0.575049            0.530560                0.00
-        2            0.517496            0.537741                0.00
-        3            0.488428            0.527205                0.00
-        4            0.469010            0.538175                0.00
-        5            0.452817            0.537245                0.00
-        6            0.438929            0.536588                0.00
-        7            0.423491            0.532349                0.00
-        8            0.416492            0.541107                0.00
-        9            0.404554            0.546218                0.00
+  [ ACTION     ] Start to train ...
+  [------------] Epoch      Train log_loss       Test log_loss     Time cost (sec)
+  [   10%      ]     1            0.571922            0.531160                0.00
+  [   20%      ]     2            0.520315            0.542134                0.00
+  [   30%      ]     3            0.492147            0.529684                0.00
+  [   40%      ]     4            0.470234            0.538684                0.00
+  [   50%      ]     5            0.452695            0.537496                0.00
+  [   60%      ]     6            0.439367            0.537790                0.00
+  [   70%      ]     7            0.425216            0.534396                0.00
+  [   80%      ]     8            0.416215            0.542883                0.00
+  [   90%      ]     9            0.404673            0.547597                0.00
 
-我们可以看到，在这个任务中 training loss 在不断的下降，而 validation loss (test loss) 则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，用户可以选择使用不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), 
-``f1``, ``auc``，例如: ::
+我们可以看到，在这个任务中 ``Train log_loss`` 在不断的下降，而 ``Test log_loss`` (validation loss) 则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。
+
+在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，而用户可以使用 ``-x`` 选项来制定不同的评价指标。对于分类任务而言，评价指标有： ``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``auc``，例如: ::
 
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x acc
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x prec
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x f1
     ./xlearn_train ./small_train.txt -v ./small_test.txt -x auc
 
-对于回归任务而言，评价指标包括：``mae``, ``mape``, and ``rmsd`` (或者 ``rmse``). 例如: ::
+对于回归任务而言，评价指标包括：``mae``, ``mape``, 以及 ``rmsd`` (或者叫作 ``rmse``)，例如: ::
 
     cd demo/house_price/
     ../../xlearn_train ./house_price_train.txt -s 3 -x rmse --cv
     ../../xlearn_train ./house_price_train.txt -s 3 -x rmsd --cv
 
-注意，这里我们通过设置 ``--cv`` 选项使用了 cross-validation (交叉验证), 我们将在下一节详细介绍该功能。
+注意，这里我们通过设置 ``--cv`` 选项使用了 *Cross-Validation (交叉验证)* 功能, 我们将在下一节详细介绍该功能。
 
-Cross-Validation 交叉验证
+Cross-Validation (交叉验证)
 ----------------------------------------
 
 在机器学习中，cross-validation (交叉验证) 是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
