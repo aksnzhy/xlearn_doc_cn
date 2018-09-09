@@ -266,7 +266,7 @@ Cross-Validation (交叉验证)
     ./xlearn_train ./small_train.txt -e 5
     ./xlearn_train ./small_train.txt -e 10   
 
-如果用户设置了 validation dataset (验证集)，xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping (提前终止训练)，例如: ::
+如果用户设置了 validation dataset (验证集)，xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stop (提前终止训练)，例如: ::
   
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10
 
@@ -339,7 +339,7 @@ Instance-Wise 归一化
 Quiet Model 安静模式
 ----------------------------------------
 
-xLearn 的训练支持 *安静模式*，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以很大程度上提高训练速度: ::
+xLearn 的训练支持安静模式，在安静模式下，用户通过调用 ``--quiet()`` 选项来使得 xLearn 的训练过程不会计算任何评价指标，这样可以很大程度上提高训练速度: ::
 
   ./xlearn_train ./small_train.txt -e 10 --quiet
 
