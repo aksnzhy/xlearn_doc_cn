@@ -1,9 +1,9 @@
 详细安装指南
 ----------------------------------
 
-目前 xLearn 可以支持 Linux 和 Mac OS X 平台，我们将在后续支持 Windows 平台。这个页面介绍了如何通过 ``pip`` 安装 xLearn，并且详细介绍了如何
-手动编译并安装 xLearn 源代码。无论你使用哪种方法安装 xLearn，请确保你的机器上已经安装了支持 C++11 的编译器，例如 ``GCC`` 或者 ``Clang`` 。
-除此之外，您还需要提前安装好 ``CMake``.
+目前 xLearn 可以支持 Linux 和 Mac OS X 平台，我们将在后续支持 Windows 平台。这一节主要介绍了如何通过 ``pip`` 工具安装 xLearn，并且详细介绍了如何
+通过源码手动编译并安装 xLearn. 无论你使用哪种方法安装 xLearn，请确保你的机器上已经安装了支持 C++11 的编译器，例如 ``GCC`` 或者 ``Clang``.
+除此之外，用户还需要提前安装好 ``CMake`` 编译工具.
 
 安装 GCC 或 Clang
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,7 +52,7 @@
 通过 pip 安装 xLearn
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-安装 xLearn 最简单的方法是使用 ``pip``. 如下命令会下载 xLearn 源代码，并在你的本地计算机进行编译和安转 ::
+安装 xLearn 最简单的方法是使用 ``pip`` 安装工具. 如下命令会下载 xLearn 源代码，并在你的本地计算机进行编译和安转工作 ::
 
     sudo pip install xlearn
 
@@ -74,7 +74,7 @@
         xLearn   -- 0.31 Version --
   -------------------------------------------------------------------------
 
-如果你在安装的过程中遇到了任何问题，或者你希望自己通过在 `Github`__ 上最新的源代码进行手动编译，或者你想使用 xLearn 的命令行界面，下面的
+如果你在安装的过程中遇到了任何问题，或者你希望自己通过在 `Github`__ 上最新的源代码进行手动编译，或者你想使用 xLearn 的命令行接口，下面的
 章节将会介绍如何从源码手动编译并安装 xLearn。*我们强烈建议你尝试从源码编译安装 xLearn*。
 
 .. __: https://github.com/aksnzhy/xlearn
@@ -84,11 +84,32 @@
 
 从源码安装 xLearn 分为两个步骤：
 
-首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。
+首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。随后，用户可以安装 xLearn Python Package.
 
-之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库.
+**编译**
 
-幸运的是，我们已经写好了一个脚本 ``build.sh`` 来帮助用户做所有的安装工作。
+用户从 Github 上 clone 下 xLearn 源代码 ::
+
+  git clone https://github.com/aksnzhy/xlearn.git
+
+  cd xlearn
+  mkdir build
+  cd build
+  cmake ../
+  make -j $(nproc)
+
+如果编译成功，用户将在 build 文件夹下看到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。
+
+**安装 Python Package**
+
+之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库. ::
+
+  cd python-package
+  sudo ./install-python.sh
+
+**安装脚本**
+
+我们已经写好了一个脚本 ``build.sh`` 来帮助用户做上述所有的安装工作。
 
 用户只需要从 Github 上 clone 下 xLearn 源代码 ::
 
