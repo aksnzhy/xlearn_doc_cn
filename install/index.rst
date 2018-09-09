@@ -8,7 +8,7 @@
 安装 GCC 或 Clang
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-如果你已经安装了支持 C++ 11 的编译器，请忽略此节内容。
+*如果你已经安装了支持 C++ 11 的编译器，请忽略此节内容。*
 
 * 在 Cygwin 上, 运行 ``setup.exe`` 并安装 ``gcc`` 和 ``binutils``.
 * 在 Debian/Ubuntu Linux 上, 输入如下命令: ::
@@ -29,7 +29,7 @@
 安装 CMake
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-如果你已经安装了 CMake，请忽略此节内容。
+*如果你已经安装了 CMake，请忽略此节内容。*
 
 * 在 Cygwin 上, 运行 ``setup.exe`` 并安装 cmake.
 * 在 Debian/Ubuntu Linux 上, 输入以下命令安装 cmake: ::
