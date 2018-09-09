@@ -1,9 +1,7 @@
 xLearn Python API 使用指南
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已经成功安装 xLearn Python Package. 
-
-输入 ``python`` 进入 Python shell，然后输入如下代码来检查是否成功安装 xLearn Python Package: ::
+xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已经成功安装了 xLearn Python Package. 用户可以进入 Python shell，然后输入如下代码来检查是否成功安装 xLearn Python Package: ::
 
     >>> import xlearn as xl
     >>> xl.hello()
@@ -24,7 +22,7 @@ xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已�
 快速开始
 ----------------------------------------
 
-如下代码展示如何使用 xLearn Python 接口，你可以在 ``demo/classification/criteo_ctr`` 路径下找到样例数据 (``small_train.txt`` and ``small_test.txt``):
+如下代码展示如何使用 xLearn Python API，你可以在 ``demo/classification/criteo_ctr`` 路径下找到样例数据 (``small_train.txt`` and ``small_test.txt``):
 
 .. code-block:: python
 
@@ -60,7 +58,7 @@ xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已�
  [  100%      ]    10            0.448725                0.00
  [ ACTION     ] Start to save model ...
 
-在上述例子中，xLearn 使用 *feild-ware factorization machines (ffm)* 来解决机器学习二分类问题。如果想解决回归 (regression) 问题，用户可以通过将 ``task`` 参数设置为 ``reg`` 来实现: ::
+在上述例子中，xLearn 使用 *feild-ware factorization machines (ffm)* 来解决一个机器学习二分类问题。如果想解决回归 (regression) 问题，用户可以通过将 ``task`` 参数设置为 ``reg`` 来实现: ::
 
     param = {'task':'reg', 'lr':0.2, 'lambda':0.002} 
 
@@ -95,7 +93,7 @@ xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已�
   0.414588
   0.250373
 
-用户还可以使用 ``setSign()`` API 将预测结果转换成 0 获 1: ::
+用户还可以使用 ``setSign()`` API 将预测结果转换成 0 或 1: ::
 
    ffm_model.setSign()
    ffm_model.setTest("./small_test.txt")  
