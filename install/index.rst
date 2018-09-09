@@ -97,9 +97,11 @@
   mkdir build
   cd build
   cmake ../
-  make -j $(nproc)
+  make
 
-如果编译成功，用户将在 build 文件夹下看到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。
+如果编译成功，用户将在 build 文件夹下看到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。用户可以通过如下命令检查 xLearn 是否安装成功: ::
+
+  ./run_example.sh
 
 安装 Python Package
 ====================
@@ -108,6 +110,11 @@
 
   cd python-package
   sudo ./install-python.sh
+
+用户可以通过如下命令检测 xLearn Python 库是否安装成功: ::
+
+  cd ../
+  python run_demo_ctr.py
 
 一键安装脚本
 ============
@@ -124,19 +131,6 @@
   sudo ./build.sh
 
 在安装过程中用户可能会被要求输入管理员账户密码。
-
-检测安装是否成功
-================
-
-用户可以通过如下命令检查 xLearn 是否安装成功: ::
-
-  cd build
-  ./run_example.sh
-
-用户可以通过如下命令检测 xLearn Python 库是否安装成功: ::
-
-  cd python-package/test
-  python test_python.py
 
 安装 R 库
 ^^^^^^^^^^^^^^^^^^^^^^^^
