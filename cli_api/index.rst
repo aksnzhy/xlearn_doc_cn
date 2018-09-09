@@ -260,13 +260,13 @@ Cross-Validation (交叉验证)
 迭代次数 & Early-Stop (提前终止)
 ----------------------------------------
 
-在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量: ::
+在模型的训练过程中，每一个 epoch 都会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置需要的 epoch 数量: ::
 
     ./xlearn_train ./small_train.txt -e 3
     ./xlearn_train ./small_train.txt -e 5
     ./xlearn_train ./small_train.txt -e 10   
 
-如果用户设置了 validation dataset (验证集)，xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping (提前停止)，例如: ::
+如果用户设置了 validation dataset (验证集)，xLearn 在默认情况下会在得到最好的 validation 结果时进行 early-stopping (提前终止训练)，例如: ::
   
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10
 
@@ -276,11 +276,11 @@ Cross-Validation (交叉验证)
   [ ACTION     ] Early-stopping at epoch 7
   [ ACTION     ] Start to save model ...
 
-用户可以通过 ``-sw`` 来设置提前停止机制的窗口大小。即，``-sw=2`` 意味着如果在后两轮之内都没有比当前更好的验证结果，则在当前轮提前停止: ::
+用户可以通过 ``-sw`` 来设置提前停止机制的窗口大小。即，``-sw=2`` 意味着如果在后两轮的时间窗口之内都没有比当前更好的验证结果，则停止训练，并保存之前最好的模型: ::
 
     ./xlearn_train ./small_train.txt -e 10 -v ./small_test.txt -sw 3
 
-用户还可以通过 ``--dis-es`` 选项来禁止 early-stopping: ::
+用户可以通过 ``--dis-es`` 选项来禁止 early-stop: ::
 
     ./xlearn_train ./small_train.txt -s 2 -v ./small_test.txt -e 10 --dis-es
 
