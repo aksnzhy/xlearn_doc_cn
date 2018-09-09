@@ -332,15 +332,15 @@ Cross-Validation (交叉验证)
 Instance-Wise 归一化
 ----------------------------------------
 
-对于 FM 和 FFM 来说，xLearn 会默认使用 *instance-wise normalizarion*. 在一些大规模稀疏数据的场景 (例如 CTR 预估), 这一技术非常的有效。但是有些时候它也会影响模型的准确率。用户可以通过设置 ``--no-norm`` 来关掉 *instance-wise normalizarion*: ::
+对于 FM 和 FFM 来说，xLearn 会默认对特征进行 *Instance-Wise Normalizarion* (归一化). 在一些大规模稀疏数据的场景 (例如 CTR 预估), 这一技术非常的有效，但是有些时候它也会影响模型的准确率。用户可以通过设置 ``--no-norm`` 来关掉该功能: ::
 
   ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt --no-norm
 
 Quiet Model 安静模式
 ----------------------------------------
 
-xLearn 的训练支持 *安静模式*，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以极大的提高训练速度: ::
+xLearn 的训练支持 *安静模式*，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以很大程度上提高训练速度: ::
 
-  ./xlearn_train ./small_train.txt --quiet
+  ./xlearn_train ./small_train.txt -e 10 --quiet
 
 xLearn 还可以支持 Python API，我们将在下一节详细介绍。
