@@ -50,7 +50,7 @@ xLearn 最简单的安装方法是使用 ``pip`` 安装工具. 下面的命令�
 Python 样例
 ^^^^^^^^^^^^^^
 
-下面的 Python 代码展示了如何使用 xLearn 来处理机器学习二分类任务： 
+下面的 Python 代码展示了如何使用 xLearn 的 ffm 算法来处理机器学习二分类任务： 
 
 .. code-block:: python
 
@@ -58,10 +58,10 @@ Python 样例
 
     # Training task
     ffm_model = xl.create_ffm()                # Use field-aware factorization machine (ffm)
-    ffm_model.setTrain("./small_train.txt")    # Path of training data
-    ffm_model.setValidate("./small_test.txt")  # Path of validation data
+    ffm_model.setTrain("./small_train.txt")    # Set the path of training dataset
+    ffm_model.setValidate("./small_test.txt")  # Set the path of validation dataset
 
-    # param:
+    # Parameters:
     #  0. task: binary classification
     #  1. learning rate: 0.2
     #  2. regular lambda: 0.002
@@ -73,7 +73,7 @@ Python 样例
     ffm_model.fit(param, './model.out')
 
     # Prediction task
-    ffm_model.setTest("./small_test.txt")  # Path of test data
+    ffm_model.setTest("./small_test.txt")  # Set the path of test dataset
     ffm_model.setSigmoid()                 # Convert output to 0-1
 
     # Start to predict
@@ -81,8 +81,7 @@ Python 样例
     ffm_model.predict("./model.out", "./output.txt")
 
 上述样例通过使用 *field-aware factorizations machine (ffm)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
-路径下找到我们所使用的样例数据 (``small_train.txt`` and ``small_test.txt``)。
-
+路径下找到我们所使用的样例数据 (``small_train.txt`` and ``small_test.txt``).
 
 其他资源链接
 ----------------------------------------
