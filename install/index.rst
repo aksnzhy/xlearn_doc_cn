@@ -109,8 +109,8 @@
   cd python-package
   sudo ./install-python.sh
 
-安装脚本
-===========
+一键安装脚本
+============
 
 我们已经写好了一个脚本 ``build.sh`` 来帮助用户做上述所有的安装工作。
 
