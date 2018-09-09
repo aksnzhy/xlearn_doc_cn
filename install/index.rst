@@ -86,7 +86,8 @@
 
 首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。随后，用户可以安装 xLearn Python Package.
 
-**编译**
+编译
+====
 
 用户从 Github 上 clone 下 xLearn 源代码 ::
 
@@ -100,14 +101,16 @@
 
 如果编译成功，用户将在 build 文件夹下看到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。
 
-**安装 Python Package**
+安装 Python Package
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库. ::
 
   cd python-package
   sudo ./install-python.sh
 
-**安装脚本**
+安装脚本
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 我们已经写好了一个脚本 ``build.sh`` 来帮助用户做上述所有的安装工作。
 
