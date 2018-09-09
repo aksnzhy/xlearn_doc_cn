@@ -55,7 +55,7 @@
 
 从源码安装 xLearn 分为两个步骤：
 
-首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` （Linux 平台）和 ``libxlearn_api.dylib`` （Mac OS X 平台）这两个动态链接库 （用来进行 Python 调用）。随后，用户可以安装 xLearn Python Package.
+首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` (Linux 平台) 和 ``libxlearn_api.dylib`` (Mac OS X 平台) 这两个动态链接库 (用来进行 Python 调用)。随后，用户可以安装 xLearn Python Package.
 
 编译
 ====
@@ -110,7 +110,7 @@
 
     sudo pip install xlearn
 
-上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功:  ::
+上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功: ::
 
   >>> import xlearn as xl
   >>> xl.hello()
