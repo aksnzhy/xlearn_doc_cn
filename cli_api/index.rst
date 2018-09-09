@@ -110,21 +110,19 @@ xLearn 命令行接口使用指南
 
 用户可以通过 ``-s`` 选项来选择不同的算法: ::
 
-  -s <type> : Type of machine learning model (default 0)
-     for classification task:
-         0 -- linear model (GLM)
-         1 -- factorization machines (FM)
-         2 -- field-aware factorization machines (FFM)
-     for regression task:
-         3 -- linear model (GLM)
-         4 -- factorization machines (FM)
-         5 -- field-aware factorization machines (FFM)
+  ./xlearn_train ./small_train.txt -s 0  # Classification: Linear model (GLM) 
+  ./xlearn_train ./small_train.txt -s 1  # Classification: Factorization machine (FM) 
+  ./xlearn_train ./small_train.txt -s 2  # Classification: Field-awre factorization machine (FFM) 
+  
+  ./xlearn_train ./small_train.txt -s 3  # Regression: Linear model (GLM) 
+  ./xlearn_train ./small_train.txt -s 4  # Regression: Factorization machine (FM) 
+  ./xlearn_train ./small_train.txt -s 5  # Regression: Field-awre factorization machine (FFM) 
 
 对于 LR 和 FM 算法而言，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式: ::
 
   libsvm format:
 
-     label index_1:value_1 index_2:value_2 ... index_n:value_n
+     y index_1:value_1 index_2:value_2 ... index_n:value_n
 
      0 0:0.1 1:0.5 3:0.2 ...
      0 0:0.2 2:0.3 5:0.1 ...
@@ -132,7 +130,7 @@ xLearn 命令行接口使用指南
 
   CSV format:
 
-     label value_1 value_2 .. value_n
+     y value_1 value_2 .. value_n
 
        0      0.1     0.2     0.2
        1      0.2     0.3     0.1
@@ -140,19 +138,15 @@ xLearn 命令行接口使用指南
 
   libffm format:
 
-     label field_1:index_1:value_1 field_2:index_2:value_2 ...
+     y field_1:index_1:value_1 field_2:index_2:value_2 ...
 
      0 0:0:0.1 1:1:0.5 2:3:0.2 ...
      0 0:0:0.2 1:2:0.3 2:5:0.1 ...
      1 0:0:0.2 1:2:0.3 2:5:0.1 ...
 
-注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其添加一个占位符 (同样针对测试数据)。否则，xLearn 会将第一个元素视为 ``y``.
+注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其每一行数据添加一个占位符 (同样针对测试数据)。否则，xLearn 会将第一个元素视为 ``y``.
 
-LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的 ``field`` 项并将其视为 ``libsvm`` 格式。如下命令展示了如何选择不同的机器学习算法: ::
-
-  ./xlearn_train ./small_train.txt -s 0  # Linear model (GLM)
-  ./xlearn_train ./small_train.txt -s 1  # Factorization machine (FM)
-  ./xlearn_train ./small_train.txt -s 2  # Field-awre factorization machine (FFM)
+LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的 ``field`` 项并将其视为 ``libsvm`` 格式。
 
 设置 Validation Dataset（验证集）
 ----------------------------------------
