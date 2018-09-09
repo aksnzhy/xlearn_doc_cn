@@ -142,7 +142,7 @@ xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已�
     fm_model = xl.create_fm()
     lr_model = xl.create_linear()
 
-对于 LR 和 FM 算法而言，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式: ::
+对于 LR 和 FM 算法而言，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法而言，我们的输入数据必须是 ``libffm`` 格式: ::
 
   libsvm format:
 
@@ -175,7 +175,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 设置 Validation Dataset (验证集)
 ----------------------------------------
 
-在机器学习中，我们可以通过 Validation Dataset (验证集) 来进行超参数调优。在 xLearn 中，用户可以使用 ``setValdiate()`` 选项来指定验证集文件，例如: ::
+在机器学习中，我们可以通过 Validation Dataset (验证集) 来进行超参数调优。在 xLearn 中，用户可以使用 ``setValidate()`` API 来指定验证集文件，例如: ::
 
    import xlearn as xl
 
@@ -203,7 +203,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 
 我们可以看到，在这个任务中 ``Train log_loss`` 在不断的下降，而 ``Test log_loss`` (validation loss) 则是先下降，后上升。这代表当前我们训练的模型已经 overfit （过拟合）我们的训练数据。
 
-在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，而用户可以使用 -x 选项来制定不同的评价指标。对于分类任务而言，评价指标有：``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``auc``，例如: ::
+在默认的情况下，xLearn 会在每一轮 epoch 结束后计算 validation loss 的数值，而用户可以使用 ``metric``  参数来制定不同的评价指标。对于分类任务而言，评价指标有：``acc`` (accuracy), ``prec`` (precision), ``f1``, 以及 ``auc``，例如: ::
 
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'acc'}
    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'prec'}
