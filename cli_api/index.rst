@@ -189,7 +189,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 Cross-Validation (交叉验证)
 ----------------------------------------
 
-在机器学习中，cross-validation (交叉验证) 是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
+在机器学习中，Cross-Validation (交叉验证) 是一种被广泛使用的模型超参数调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
 选项来使用交叉验证功能，例如: ::
 
     ./xlearn_train ./small_train.txt --cv
@@ -198,7 +198,7 @@ Cross-Validation (交叉验证)
     
     ./xlearn_train ./small_train.txt -f 3 --cv
 
-上述命令将数据集划分成为 3 份。xLearn 会在最后计算平均的 validation loss: ::
+上述命令将数据集划分成为 3 份，并且 xLearn 会在最后计算出平均的 validation loss: ::
 
      ...
     [------------] Average log_loss: 0.549417
@@ -209,17 +209,17 @@ Cross-Validation (交叉验证)
 选择优化算法
 ----------------------------------------
  
-在 xLearn 中，用户可以通过 ``-p`` 选项来选择使用不同的优化算法。目前，xLearn 支持 ``sgd``, ``adagrad``, 以及 ``ftrl`` 这三种优化算法。
-在默认的情况下，xLearn 使用 ``adagrad`` 优化算法: ::
+在 xLearn 中，用户可以通过 ``-p`` 选项来选择使用不同的优化算法。目前，xLearn 支持 ``SGD``, ``AdaGrad``, 以及 ``FTRL`` 这三种优化算法。
+在默认的情况下，xLearn 使用 ``AdaGrad`` 优化算法: ::
 
     ./xlearn_train ./small_train.txt -p sgd
     ./xlearn_train ./small_train.txt -p adagrad
     ./xlearn_train ./small_train.txt -p ftrl
 
-相比于传统的 ``sgd`` (随机梯度下降) 算法，``adagrad`` 可以自适应的调整学习速率 learning rate，对于不常用的参数进行大的更新，对于常用的参数进行小的更新。
-正因如此，``adagrad`` 常用语稀疏数据的优化问题上。除此之外，相比于 ``adagrad``，``sgd`` 对学习速率更敏感，这增加了用户调参的难度。
+相比于传统的 ``SGD`` (随机梯度下降) 算法，``AdaGrad`` 可以自适应的调整学习速率 learning rate，对于不常用的参数进行较大的更新，对于常用的参数进行较小的更新。
+正因如此，``AdaGrad`` 算法常用于稀疏数据的优化问题上。除此之外，相比于 ``AdaGrad``，``SGD`` 对学习速率的大小更敏感，这增加了用户调参的难度。
 
-``FTRL`` (Follow-the-Regularized-Leader) 同样被广泛应用于大规模稀疏数据的优化问题上。相比于 SGD 和 Adagrad，使用 FTRL 用户需要调试更多的超参数。
+``FTRL`` (Follow-the-Regularized-Leader) 同样被广泛应用于大规模稀疏数据的优化问题上。相比于 ``SGD`` 和 ``AdaGrad````FTRL`` 需要用户调试更多的超参数，我们将在下一节详细介绍 xLearn 的超参数调优。
 
 超参数调优
 ----------------------------------------
