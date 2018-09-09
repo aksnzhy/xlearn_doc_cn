@@ -11,7 +11,7 @@ xLearn 命令行接口使用指南
 
     ./xlearn_train ./small_train.txt
 
-下面是一部分程序的输出。注意，这里显示的 ``log_loss`` 值可能和你本地计算出的 ``log_loss`` 值不完全一样。 ::
+下面是一部分程序的输出。注意，这里显示的 ``log_loss`` 值可能和你本地计算出的 ``log_loss`` 值不完全一样: ::
 
   [ ACTION     ] Start to train ...
   [------------] Epoch      Train log_loss     Time cost (sec)
@@ -44,7 +44,7 @@ xLearn 命令行接口使用指南
     -0.170811
     -1.28986
 
-这里每一行的分数都对应了测试数据中的一行预测样本。负数代表我们预测该样本为负样本，正数代表正样本 (在这个例子中没有)。在 xLearn 中，用户可以将分数通过 ``--sigmoid`` 选项转换到 (0-1) 之间，还可以使用 ``--sign`` 选项将其转换成 0 和 1: ::
+这里每一行的分数都对应了测试数据中的一行预测样本。负数代表我们预测该样本为负样本，正数代表正样本 (在这个例子中没有)。在 xLearn 中，用户可以将分数通过 ``--sigmoid`` 选项转换到 (0-1) 之间，还可以使用 ``--sign`` 选项将其转换成 0 或 1: ::
 
     ./xlearn_predict ./small_test.txt ./small_train.txt.model --sigmoid
     head -n 5 ./small_test.txt.out
@@ -64,18 +64,18 @@ xLearn 命令行接口使用指南
     0
     0
 
-模型输出
+模型的输出
 ----------------------------------------
 
-用户可以通过设置不同的超参数来生成不同的模型，通过 ``-m`` 选项来制定这些输出模型的名字。在默认的情况下，模型文件的名字是 ``training_data_name`` + ``.model`` : ::
+用户可以通过设置不同的超参数来生成不同的模型，xLearn 通过 ``-m`` 选项来指定这些输出模型文件的路径。在默认的情况下，模型文件的路径是当前运行文件夹下的 ``training_data_name`` + ``.model`` 文件: ::
 
   ./xlearn_train ./small_train.txt -m new_model
 
-用户还可以通过 ``-t`` 选项将模型输出成可读的 ``TXT`` 格式，例如: ::
+用户还可以通过 ``-t`` 选项将模型输出成人类可读的 ``TXT`` 格式，例如: ::
 
   ./xlearn_train ./small_train.txt -t model.txt
 
-运行上述命令我们可以看到在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的模型: ::
+运行上述命令后，我们发现在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的输出模型: ::
 
   head -n 5 ./model.txt
 
@@ -87,7 +87,10 @@ xLearn 命令行接口使用指南
 
 对于线性模型来说，``TXT`` 格式的模型将每一个模型参数存储在一行。对于 FM 和 FFM，模型将每一个 latent vector 存储在一行。
 
-用户可以通过 ``-o`` 选项来指定预测输出文件的路径和名字。例如: ::
+预测结果的输出
+----------------------------------------
+
+用户可以通过 ``-o`` 选项来指定预测结果输出文件的路径。例如: ::
 
   ./xlearn_predict ./small_test.txt ./small_train.txt.model -o output.txt  
   head -n 5 ./output.txt
@@ -98,8 +101,7 @@ xLearn 命令行接口使用指南
   -0.170979
   -1.28849
 
-在默认的情况下，输出文件的路径格式是 ``test_data_name`` + ``.out`` .
-
+在默认的情况下，预测结果输出文件的路径格式是当前文件夹下的 ``test_data_name`` + ``.out`` 文件。
 
 选择机器学习算法
 ----------------------------------------
@@ -118,19 +120,31 @@ xLearn 命令行接口使用指南
          4 -- factorization machines (FM)
          5 -- field-aware factorization machines (FFM)
 
-对于 LR 和 FM 算法，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式: ::
+对于 LR 和 FM 算法而言，我们的输入数据格式必须是 ``CSV`` 或者 ``libsvm``. 对于 FFM 算法，我们的输入数据必须是 ``libffm`` 格式: ::
 
   libsvm format:
 
      label index_1:value_1 index_2:value_2 ... index_n:value_n
 
+     0 0:0.1 1:0.5 3:0.2 ...
+     0 0:0.2 2:0.3 5:0.1 ...
+     1 0:0.2 2:0.3 5:0.1 ...
+
   CSV format:
 
      label value_1 value_2 .. value_n
 
+       0      0.1     0.2     0.2
+       1      0.2     0.3     0.1
+       0      0.1     0.2     0.4
+
   libffm format:
 
      label field_1:index_1:value_1 field_2:index_2:value_2 ...
+
+     0 0:0:0.1 1:1:0.5 2:3:0.2 ...
+     0 0:0:0.2 1:2:0.3 2:5:0.1 ...
+     1 0:0:0.2 1:2:0.3 2:5:0.1 ...
 
 注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其添加一个占位符 (同样针对测试数据)。否则，xLearn 会将第一个元素视为 ``y``.
 
