@@ -256,7 +256,7 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.40
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.10
 
-迭代次数 & Early-Stopping (提前结束)
+迭代次数 & Early-Stopping
 ----------------------------------------
 
 在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量: ::
