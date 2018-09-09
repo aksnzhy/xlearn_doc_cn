@@ -104,7 +104,7 @@
 安装 Python Package
 ====================
 
-之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 库. ::
+之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 包. ::
 
   cd python-package
   sudo ./install-python.sh
