@@ -289,32 +289,45 @@ Cross-Validation (交叉验证)
 无锁 (Lock-free) 学习
 ----------------------------------------
 
-在默认情况下，xLearn 会进行 *Hogwild!* 无锁学习，该方法通过 CPU 多核进行并行计算，提高 CPU 利用率，加快算法收敛速度。但是，该无锁算法是非确定性的算法 (*non-deterministic*). 例如，如果我们多次运行如下的命令，我们会在每一次运行得到不同的 loss 结果: ::
+在默认情况下，xLearn 会进行 *Hogwild!* 无锁学习，该方法通过 CPU 多核进行并行训练，提高 CPU 利用率，加快算法收敛速度。但是，该无锁算法是非确定性的算法 (*non-deterministic*). 即，如果我们多次运行如下的命令，我们会在每一次运行得到略微不同的 loss 结果: ::
 
    ./xlearn_train ./small_train.txt 
 
    The 1st time: 0.396352
+
+   ./xlearn_train ./small_train.txt 
+
    The 2nd time: 0.396119
+
+   ./xlearn_train ./small_train.txt 
+
    The 3nd time: 0.396187
-   ...
 
 用户可以通过 ``-nthread`` 选项来设置使用 CPU 核心的数量，例如: ::
 
    ./xlearn_train ./small_train.txt -nthread 2
 
-如果你不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。
+上述命令指定使用 2 个 CPU Core 来进行模型训练。如果用户不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。
 
-用户可以通过设置 ``--dis-lock-free`` 选项禁止多核无锁训练: ::
+用户可以通过设置 ``--dis-lock-free`` 选项禁止多核无锁学习: ::
 
   ./xlearn_train ./small_train.txt --dis-lock-free
 
 这时，xLearn 计算的结果是确定性的 (*determinnistic*): ::
 
+   ./xlearn_train ./small_train.txt 
+
    The 1st time: 0.396372
+
+   ./xlearn_train ./small_train.txt 
+
    The 2nd time: 0.396372
+
+   ./xlearn_train ./small_train.txt 
+
    The 3nd time: 0.396372
 
-使用 ``--dis-lock-free`` 的缺点是这样训练速度会比无锁训练慢很多。
+使用 ``--dis-lock-free`` 的缺点是训练速度会比无锁训练慢很多，我们的建议是在大规模数据训练下开启此功能。
 
 Instance-Wise 归一化
 ----------------------------------------
