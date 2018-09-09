@@ -19,7 +19,7 @@
 
       sudo apt-get install clang 
 
-* 在 FreeBSD 上, 输入以下命令安装 Clang :: 
+* 在 FreeBSD 上, 输入以下命令安装 Clang: :: 
 
       sudo pkg_add -r clang 
 
@@ -40,11 +40,11 @@
    
       sudo pkg_add -r cmake
 
-在 Mac OS X, 如果你安装了 ``homebrew``, 输入以下命令 :: 
+在 Mac OS X, 如果你安装了 ``homebrew``, 输入以下命令: :: 
 
      brew install cmake
 
-或者你安装了 ``MacPorts``, 输入以下命令 :: 
+或者你安装了 ``MacPorts``, 输入以下命令: :: 
 
      sudo port install cmake
 
@@ -52,11 +52,11 @@
 通过 pip 安装 xLearn
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-安装 xLearn 最简单的方法是使用 ``pip`` 安装工具. 如下命令会下载 xLearn 源代码，并在你的本地计算机进行编译和安转工作 ::
+安装 xLearn 最简单的方法是使用 ``pip`` 安装工具. 如下命令会下载 xLearn 源代码，并在你的本地计算机进行编译和安装工作: ::
 
     sudo pip install xlearn
 
-上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功。 ::
+上述安装过程可能会持续一段时间，请耐心等候。安装完成后，用户可以使用下面的代码来检测 xLearn 是否安装成功:  ::
 
   >>> import xlearn as xl
   >>> xl.hello()
@@ -89,7 +89,7 @@
 编译
 ====
 
-用户从 Github 上 clone 下 xLearn 源代码 ::
+用户从 Github 上 clone 下 xLearn 源代码: ::
 
   git clone https://github.com/aksnzhy/xlearn.git
 
@@ -106,7 +106,7 @@
 安装 Python Package
 ====================
 
-之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 包. ::
+之后，你就可以通过 ``install-python.sh`` 脚本来安装 xLearn Python 包: ::
 
   cd python-package
   sudo ./install-python.sh
@@ -121,7 +121,7 @@
 
 我们已经写好了一个脚本 ``build.sh`` 来帮助用户做上述所有的安装工作。
 
-用户只需要从 Github 上 clone 下 xLearn 源代码 ::
+用户只需要从 Github 上 clone 下 xLearn 源代码: ::
 
   git clone https://github.com/aksnzhy/xlearn.git
 
