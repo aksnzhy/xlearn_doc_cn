@@ -184,7 +184,7 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 
 注意，这里我们通过设置 ``--cv`` 选项使用了 cross-validation (交叉验证), 我们将在下一节详细介绍该功能。
 
-交叉验证
+Cross-Validation 交叉验证
 ----------------------------------------
 
 在机器学习中，cross-validation (交叉验证) 是一种被广泛使用的模型选择于调优技术。在 xLearn 中，用户可以使用 ``--cv`` 
@@ -256,7 +256,7 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.40
     ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt -u 0.10
 
-迭代次数 & 提前结束
+迭代次数 & Early-Stopping (提前结束)
 ----------------------------------------
 
 在模型的训练过程中，每一个 epoch 会遍历整个训练数据。在 xLearn 中，用户可以通过 ``-e`` 选项来设置 epoch 的数量: ::
@@ -315,14 +315,14 @@ xLearn 使用了 *SSE* 指令来加速向量运算，该指令会同时进行向
 
 使用 ``--dis-lock-free`` 的缺点是这样训练速度会比无锁训练慢很多。
 
-Instance-wise 归一化
+Instance-Wise 归一化
 ----------------------------------------
 
 对于 FM 和 FFM 来说，xLearn 会默认使用 *instance-wise normalizarion*. 在一些大规模稀疏数据的场景 (例如 CTR 预估), 这一技术非常的有效。但是有些时候它也会影响模型的准确率。用户可以通过设置 ``--no-norm`` 来关掉 *instance-wise normalizarion*: ::
 
   ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt --no-norm
 
-安静模式
+Quiet Model 安静模式
 ----------------------------------------
 
 xLearn 的训练支持 *安静模式*，在安静模式下，xLearn 的训练过程不会计算任何评价指标，这样可以极大的提高训练速度: ::
