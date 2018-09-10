@@ -6,11 +6,11 @@ xLearn API 列表总览
 命令行接口
 ------------------------------
 
-For Training: ::
+训练: ::
 
     xlearn_train <train_file_path> [OPTIONS]
 
-Options: ::
+参数选项: ::
 
   -s <type> : Type of machine learning model (default 0)
      for classification task:
@@ -91,11 +91,11 @@ Options: ::
   --quiet              :  Don't print any evaluation information during the training and just train the 
                           model quietly. It can accelerate the training process.
 
-For Prediction: ::
+预测: ::
 
     xlearn_predict <test_file_path> <model_file_path> [OPTIONS]
 
-Options: ::
+参数选项: ::
 
   -o <output_file>     :  Path of the output file. On default, this value will be set to 'test_file' + '.out'
                                                       
