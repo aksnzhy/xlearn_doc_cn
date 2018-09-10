@@ -1,9 +1,9 @@
 xLearn API 列表总览
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This page gives the xLearn API List for the command line, Python package, and R package.
+该页面展示了 xLearn 所有的 API 列表，包括了命令行接口以及 Python 接口。
 
-xLearn Command Line Usage
+命令行接口
 ------------------------------
 
 For Training: ::
@@ -107,10 +107,10 @@ Options: ::
 
   --sigmoid                :  Converting output result to 0 ~ 1 (problebility).
 
-xLearn Python API
+Python 接口
 ------------------------------
 
-API List: ::
+API 列表: ::
 
     import xlearn as xl      # Import xlearn package
 
@@ -150,7 +150,7 @@ API List: ::
 
     model.disableEarlyStop()  # Disable early-stopping.
 
-Parameter List: ::
+超参数列表: ::
 
     task     : {'binary',  # Binary classification
                 'reg'}     # Regression
@@ -186,7 +186,7 @@ Parameter List: ::
 
     block_size : int value  # block size for on-disk training
 
-xLearn R API
+R 接口
 ------------------------------
 
 xLearn R API page is coming soon.
