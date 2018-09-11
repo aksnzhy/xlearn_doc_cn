@@ -9,7 +9,7 @@ machine learning problems. First, xLearn can handle very large data (TB) on a si
 by using *out-of-core* learning. In addition, xLearn can scale beyond billions of example
 across many machines to support distributed training by using the *parameter server* framework.
 
-Out-of-Core Learning
+外存计算
 --------------------------------
 
 *Out-of-core* leanring refers to the machine learning algorithms working with data cannot fit into 
@@ -27,7 +27,7 @@ size for the mini-batch that balances relevancy and memory footprint could invol
 .. image:: ../images/out-of-core.png
     :width: 500   
 
-Out-of-Core Learning Using xLearn Command Line
+命令行接口
 ===================================================
 
 Is's very easy to perform *out-of-core* learning in xLearn command line, where users can just use the ``--disk`` 
@@ -68,7 +68,7 @@ In this time, the training of each epoch will only spend nearly ``1.8`` seconds.
 
 We can set the block size for on-disk training by using ``-block`` options.
 
-Out-of-Core Learning Using xLearn Python API
+Python 接口
 ===================================================
 
 In Python, users can use ``setOnDisk`` API to perform *out-of-core* learning. For example: ::
@@ -106,12 +106,12 @@ In Python, users can use ``setOnDisk`` API to perform *out-of-core* learning. Fo
 
 We can set the block size for on-disk training by using ``block_size`` parameter.
 
-Out-of-Core Learning Using xLearn R API
+R 接口
 ===================================================
 
 The R guide is coming soon.
 
-Distributed Learning
+分布式计算 （参数服务器架构）
 --------------------------------
 
 As we mentioned before, for some large-scale machine challenges like computational advertising, we
