@@ -57,8 +57,8 @@
 
 首先，我们需要编译 xLearn 得到 ``xlearn_train`` 和 ``xlearn_predict`` 这两个可执行文件。除此之外，我们还需要得到 ``libxlearn_api.so`` (Linux 平台) 和 ``libxlearn_api.dylib`` (Mac OS X 平台) 这两个动态链接库 (用来进行 Python 调用)。随后，用户可以安装 xLearn Python Package.
 
-编译
-====
+编译 xLearn
+===========
 
 用户从 Github 上 clone 下 xLearn 源代码: ::
 
