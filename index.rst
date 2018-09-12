@@ -80,7 +80,7 @@ Python 样例
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-上述样例通过使用 *field-aware factorizations machine (FFM)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
+上述样例通过使用 *field-aware factorization machines (FFM)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
 路径下找到我们所使用的样例数据 (``small_train.txt`` and ``small_test.txt``).
 
 其他资源链接
