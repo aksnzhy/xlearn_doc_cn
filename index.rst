@@ -50,7 +50,7 @@ xLearn 最简单的安装方法是使用 ``pip`` 安装工具. 下面的命令�
 Python 样例
 ^^^^^^^^^^^^^^
 
-下面的 Python 代码展示了如何使用 xLearn 的 ffm 算法来处理机器学习二分类任务： 
+下面的 Python 代码展示了如何使用 xLearn 的 FFM 算法来处理机器学习二分类任务： 
 
 .. code-block:: python
 
@@ -80,7 +80,7 @@ Python 样例
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-上述样例通过使用 *field-aware factorizations machine (ffm)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
+上述样例通过使用 *field-aware factorizations machine (FFM)* 来解决一个简单的二分类任务。用户可以在 ``demo/classification/criteo_ctr`` 
 路径下找到我们所使用的样例数据 (``small_train.txt`` and ``small_test.txt``).
 
 其他资源链接
