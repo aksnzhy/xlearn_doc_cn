@@ -50,7 +50,7 @@ xLearn 最简单的安装方法是使用 ``pip`` 安装工具. 下面的命令�
 Python 样例
 ^^^^^^^^^^^^^^
 
-下面的 Python 代码展示了如何使用 xLearn 的 FFM 算法来处理机器学习二分类任务： 
+下面的 Python 代码展示了如何使用 xLearn 的 *FFM* 算法来处理机器学习二分类任务： 
 
 .. code-block:: python
 
