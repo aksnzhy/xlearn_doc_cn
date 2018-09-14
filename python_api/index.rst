@@ -342,6 +342,8 @@ FTRL (Follow-the-Regularized-Leader) 同样被广泛应用于大规模稀疏数�
 
 在上述命令中，xLearn 将进行完整的 10 轮 epoch 训练。
 
+注意，在默认情况下，如果没有设置 metric，则 xLearn 会通过 test_loss 来选择最佳停止时机。如果设置了 metric，则 xLearn 通过 metric 的值来决定停止时机。 
+
 无锁（Lock-free）学习
 ----------------------------------------
 
