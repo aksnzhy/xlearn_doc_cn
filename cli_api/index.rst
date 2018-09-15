@@ -193,11 +193,11 @@ Cross-Validation (交叉验证)
 
     ./xlearn_train ./small_train.txt --cv
 
-在默认的情况下，xLearn 使用 5-folds 交叉验证 (即将数据集平均分成 5 份)，用户也可以通过 ``-f`` 选项来指定数据划分的份数，例如: ::
+在默认的情况下，xLearn 使用 3-folds 交叉验证 (即将数据集平均分成 3 份)，用户也可以通过 ``-f`` 选项来指定数据划分的份数，例如: ::
     
-    ./xlearn_train ./small_train.txt -f 3 --cv
+    ./xlearn_train ./small_train.txt -f 5 --cv
 
-上述命令将数据集划分成为 3 份，并且 xLearn 会在最后计算出平均的 validation loss: ::
+上述命令将数据集划分成为 5 份，并且 xLearn 会在最后计算出平均的 validation loss: ::
 
      ...
     [------------] Average log_loss: 0.549417

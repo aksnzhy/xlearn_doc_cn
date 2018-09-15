@@ -229,17 +229,17 @@ Cross-Validation (交叉验证)
             
     ffm_model.cv(param)
 
-在默认的情况下，xLearn 使用 5-folds 交叉验证 (即将数据集平均分成 5 份)，用户也可以通过 ``fold`` 参数来指定数据划分的份数，例如: ::
+在默认的情况下，xLearn 使用 3-folds 交叉验证 (即将数据集平均分成 3 份)，用户也可以通过 ``fold`` 参数来指定数据划分的份数，例如: ::
 
     import xlearn as xl
 
     ffm_model = xl.create_ffm()
     ffm_model.setTrain("./small_train.txt")  
-    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'fold':3} 
+    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'fold':5} 
             
     ffm_model.cv(param)     
 
-上述命令将数据集划分成为 3 份，并且 xLearn 会在最后计算出平均的 validation loss: ::
+上述命令将数据集划分成为 5 份，并且 xLearn 会在最后计算出平均的 validation loss: ::
 
   [------------] Average log_loss: 0.549758
   [ ACTION     ] Finish Cross-Validation
