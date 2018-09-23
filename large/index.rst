@@ -1,13 +1,7 @@
 xLearn 大规模机器学习
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This page shows how to use xLearn to solve large-scale machine learning problems. 
-In recent years, challenges arise with the fast-growing data. For "big-data", we focus
-on datasets with potentially trillions of training examples, which cannot fit into the 
-memory of a single machine. Motivated by this, we design xLearn to solve large-scale 
-machine learning problems. First, xLearn can handle very large data (TB) on a single PC 
-by using *out-of-core* learning. In addition, xLearn can scale beyond billions of example
-across many machines to support distributed training by using the *parameter server* framework.
+我们在这一节里主要展示如何使用 xLearn 来处理大规模机器学习问题。近年来，快速增长的海量数据为机器学习任务带来了挑战。例如，我们的数据集可能会用数千亿条训练样本，这些数据是不可能被存放在单台计算机的内存中的。正因如此，我们在设计 xLearn 时专门考虑了如何解决大规模数据的机器学习训练功能。首先，xLearn 可以支持外村计算，通过利用单台计算机的磁盘来处理 TB 量级的数据训练任务。此外，xLearn 可以通过基于*参数服务器*的分布式架构来进行多机分布式训练。
 
 外存计算
 --------------------------------
