@@ -51,7 +51,7 @@ xLearn 大规模机器学习
 Python 接口
 ===================================================
 
-In Python, users can use ``setOnDisk`` API to perform *out-of-core* learning. For example: ::
+在 Python 中，用户可以通过 ``setOnDisk()`` API 来使用外存计算，例如: ::
 
     import xlearn as xl
 
@@ -84,7 +84,7 @@ In Python, users can use ``setOnDisk`` API to perform *out-of-core* learning. Fo
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-We can set the block size for on-disk training by using ``block_size`` parameter.
+用户还可以通过 ``block_size`` 参数来设置外存计算的内存 block 大小 （MB）。
 
 R 接口
 ===================================================
