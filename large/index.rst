@@ -14,8 +14,7 @@ xLearn 大规模机器学习
 命令行接口
 ===================================================
 
-Is's very easy to perform *out-of-core* learning in xLearn command line, where users can just use the ``--disk`` 
-option, and xLearn will help you do all the other things. For example: ::
+在 xLearn 中，用户可以通过设置 ``--disk`` 选项来进行外存计算。例如: ::
 
     ./xlearn_train ./big_data.txt -s 2 --disk
 
@@ -31,8 +30,7 @@ option, and xLearn will help you do all the other things. For example: ::
        9            0.416855                5.03
       10            0.407846                4.53
 
-In this example, xLearn can finish the training of each epoch in nearly ``4.5`` second. 
-If you delete the ``--disk`` option, xLearn can train faster. ::
+在上述示例中，xLearn 需要花费将近 4.5 进行每一个 epoch 的训练任务。如果我们取消 ``--disk`` 选项，xLearn 的训练速度会变快: ::
 
     ./xlearn_train ./big_data.txt -s 2
 
@@ -48,9 +46,7 @@ If you delete the ``--disk`` option, xLearn can train faster. ::
         9            0.416579                1.96
        10            0.407518                2.11
 
-In this time, the training of each epoch will only spend nearly ``1.8`` seconds.
-
-We can set the block size for on-disk training by using ``-block`` options.
+这一次，每一个 epoch 的训练时间变成了 ``1.8`` 秒。我们还可以通过 ``-block`` 选项来设置外存计算的内存 block 大小 （MB）。
 
 Python 接口
 ===================================================
