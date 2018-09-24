@@ -6,17 +6,7 @@ xLearn 大规模机器学习
 外存计算
 --------------------------------
 
-*Out-of-core* leanring refers to the machine learning algorithms working with data cannot fit into 
-the memory of a single machine, but that can easily fit into some data storage such as local hard disk
-or web repository. Your available RAM, the core memory on your single machine, may indeed range from a few 
-gigabytes (sometimes 2 GB, more commonly 4 GB, but we assume that you have 2 GB at maximum) up to 256 GB on 
-large server machines. Large servers are like the ones you can get on cloud computing services such as Amazon 
-Elastic Compute Cloud (EC2), whereas your storage capabilities can easily exceed terabytes of capacity using 
-just an external drive (most likely about 1 TB but it can reach up to 4 TB).
-
-Actually, the ability to learn incrementally from a mini-batch of instances is key to *out-of-core* learning as
-it gurantees that at any given time there will be only a small amount of data in the main memory. Choose a good
-size for the mini-batch that balances relevancy and memory footprint could involve some tuning.
+外存计算适用于那些数据量过大不能被内存装下，但是可以被磁盘等外部存储设备装下的情况。通常情况下，单台机器的内存容量从几个 GB 到几百个 GB 不等。然而，当前的服务器外存容量通常可以很容易达到几个 TB. 外存计算的核心是通过 mini-batch 的方法，在每一次的计算时只读取一小部分数据进入内存，增量式地学习所有的训练数据。外存计算需要用户设定合适的 mini-batch-size.
 
 .. image:: ../images/out-of-core.png
     :width: 500   
