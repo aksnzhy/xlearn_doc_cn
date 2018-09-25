@@ -101,7 +101,7 @@ The R guide is coming soon.
 .. image:: ../images/ps.png
     :width: 500   
 
-如图所示，一个标准的参数服务器系统提供给用户两个简洁的 API. 
+如图所示，一个标准的参数服务器系统提供给用户两个简洁的 API: *Push* 和 *Pull*. 
 
 *Push*: 向参数服务器发送 key-value pairs. 以分布式梯度下降为例，worker 节点会计算本地的梯度 （gradient）并将其发送给参数服务器。由于数据的稀疏性，只有一小部分数据不为 0. 我们通常会发送一个 （key，value）的向量给参数服务器，其中 key 是参数的标记位，value 是梯度的数值。 
 
