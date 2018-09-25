@@ -94,11 +94,7 @@ The R guide is coming soon.
 分布式计算 （参数服务器架构）
 --------------------------------
 
-As we mentioned before, for some large-scale machine challenges like computational advertising, we
-focus on the problem with potentially trillions of training examples and billions of model parameters,
-both of which cannot fit into the memory of a single machine, which brings the *scalability challenge*
-for users and system designer. For this challenge, parallelizing the training process across machines has 
-become a prerequisite.
+面对海量数据，很多情况下我们无法通过一台机器就完成机器学习的训练任务。例如大规模 CTR 任务，用户可能需要处理千亿级别的训练样本和十亿级别的模型参数，这些都是一台计算机的内存无法装下的。对于这样的挑战，我们需要采用多机分布式训练。
 
 The *Parameter Server* (PS) framework has emerged as an efficient approach to solve the “big model” machine learning 
 challenge recently. Under this framework, both the training data and workloads are spread across worker nodes, while 
