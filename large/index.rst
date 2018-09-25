@@ -101,16 +101,10 @@ The R guide is coming soon.
 .. image:: ../images/ps.png
     :width: 500   
 
-As we can see, the *Parameter Server* provides two concise APIs for users. 
+如图所示，一个标准的参数服务器系统提供给用户两个简洁的 API. 
 
-*Push* sends a vector of (key, value) paris
-to the server nodes. To be more specific – in the distributed gradient descent, the worker nodes might send the locally 
-computed gradients to servers. Due to the data sparsity, only a part the gradients is non-zero. Often it is desirable to 
-present the gradient as a list of (key, value) pairs, where the feature index is the key and the according gradient item 
-is value.
+*Push*: 向参数服务器发送 key-value pairs. 以分布式梯度下降为例，worker 节点会计算本地的梯度 （gradient）并将其发送给参数服务器。由于数据的稀疏性，只有一小部分数据不为 0. 我们通常会发送一个 （key，value）的向量给参数服务器，其中 key 是参数的标记位，value 是梯度的数值。 
 
-*Pull* requests the values associated with a list of keys, which will get the newest parameters from the server nodes. This 
-is particularly useful whenever the main memory of a single worker cannot hold a full model. Instead, workers prefetch the 
-model entries relevant for solving the model only when needed.
+*Pull*: 通过发送 key 的列表从参数服务器请求更新后的模型参数。在大规模机器学习下，模型的大小通常无法被存放在一台机器中，所以 *pull* 接口只会请求那些当前计算需要的模型参数，而并不会将整个模型请求下来。
 
 The distributed training guide for xLearn is coming soon.
