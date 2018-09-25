@@ -96,10 +96,7 @@ The R guide is coming soon.
 
 面对海量数据，很多情况下我们无法通过一台机器就完成机器学习的训练任务。例如大规模 CTR 任务，用户可能需要处理千亿级别的训练样本和十亿级别的模型参数，这些都是一台计算机的内存无法装下的。对于这样的挑战，我们需要采用多机分布式训练。
 
-The *Parameter Server* (PS) framework has emerged as an efficient approach to solve the “big model” machine learning 
-challenge recently. Under this framework, both the training data and workloads are spread across worker nodes, while 
-the server nodes maintain the globally shared model pa- rameters. The following figure demonstrates the architecture 
-of the PS framework. 
+*Parameter Server* (参数服务器) 是近几年提出并被广泛应用的一种分布式机器学习架构，专门针对于 “大数据” 和 “大模型” 带来的挑战。在这个架构下，训练数据和计算任务被划分到多台 worker 节点之上，而 Server 节点负责存储机器学习模型的参数（所以叫作参数服务器）。下图展示了一个参数服务器的工作流程。
 
 .. image:: ../images/ps.png
     :width: 500   
