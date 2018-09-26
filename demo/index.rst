@@ -1,12 +1,12 @@
 xLearn 样例程序
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Copyright of the dataset belongs to the original copyright holder.
+注意：这是用的所有数据集所有权属于原作者。
 
 Criteo CTR Prediction
 ---------------------------
 
-Predict click-through rates on display ads (`Link`__)
+在线广告 CTR 预估 (`Link`__)
 
 Display advertising is a billion dollar effort and one of the central uses of machine learning on the Internet. 
 However, its data and methods are usually kept under lock and key. In this research competition, CriteoLabs is 
