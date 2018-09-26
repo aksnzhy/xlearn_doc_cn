@@ -46,7 +46,7 @@ The follow code is the Python demo:
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-Mushroom Classification
+蘑菇分类
 ---------------------------
 
 This dataset comes from UCI Machine Learning Repositpry (`Link`__)
@@ -92,7 +92,7 @@ The follow code is the Python demo:
     # The output result will be stored in output.txt
     linear_model.predict("./model.out", "./output.txt")
 
-Predict Survival in Titanic
+泰塔尼克生还预测
 -----------------------------
 
 This challenge comes from the Kaggle. In this challenge, we ask you to complete the analysis of what sorts of people 
@@ -122,7 +122,7 @@ The follow code is the Python demo:
     # Use cross-validation
     fm_model.cv(param)
 
-House Price Prediction
+房价预测
 -----------------------------
 
 This demo shows how to use xLearn to solve the regression problem, and it comes from the Kaggle. The Ames 
