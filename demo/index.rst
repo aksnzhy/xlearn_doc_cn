@@ -6,7 +6,7 @@ xLearn 样例程序
 Criteo 在线广告预估
 ---------------------------
 
-Predict click-through rates on display ads (`Link`__)
+Kaglle 预测广告是否会被用户点击 (`链接`__)
 
 Display advertising is a billion dollar effort and one of the central uses of machine learning on the Internet. 
 However, its data and methods are usually kept under lock and key. In this research competition, CriteoLabs is 
@@ -49,7 +49,7 @@ The follow code is the Python demo:
 蘑菇分类
 ---------------------------
 
-This dataset comes from UCI Machine Learning Repositpry (`Link`__)
+数据集来自 UCI Machine Learning Repositpry (`链接`__)
 
 This data set includes descriptions of hypothetical samples corresponding to 23 species of gilled mushrooms in 
 the Agaricus and Lepiota Family (pp. 500-525). Each species is identified as definitely edible, definitely poisonous, 
@@ -97,7 +97,7 @@ The follow code is the Python demo:
 
 This challenge comes from the Kaggle. In this challenge, we ask you to complete the analysis of what sorts of people 
 were likely to survive. In particular, we ask you to apply the tools of machine learning to predict which passengers 
-survived the tragedy. (`Link`__)
+survived the tragedy. (`链接`__)
 
 You can find the data used in this demo in the path ``/demo/classification/titanic/``.
 
@@ -128,7 +128,7 @@ The follow code is the Python demo:
 This demo shows how to use xLearn to solve the regression problem, and it comes from the Kaggle. The Ames 
 Housing dataset was compiled by Dean De Cock for use in data science education. It's an incredible alternative 
 for data scientists looking for a modernized and expanded version of the often cited Boston 
-Housing dataset. (`Link`__)
+Housing dataset. (`链接`__)
 
 You can find the data used in this demo in the path ``/demo/regression/house_price/``.
 
