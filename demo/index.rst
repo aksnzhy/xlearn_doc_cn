@@ -31,8 +31,7 @@ The follow code is the Python demo:
     #  1. learning rate: 0.2
     #  2. regular lambda: 0.002
     #  3. evaluation metric: accuracy
-    param = {'task':'binary', 'lr':0.2, 
-             'lambda':0.002, 'metric':'acc'}
+    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric':'acc'}
 
     # Start to train
     # The trained model will be stored in model.out
@@ -116,8 +115,7 @@ The follow code is the Python demo:
     #  1. learning rate: 0.2
     #  2. lambda: 0.002
     #  3. metric: accuracy
-    param = {'task':'binary', 'lr':0.2, 
-             'lambda':0.002, 'metric':'acc'}
+    param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric':'acc'}
 
     # Use cross-validation
     fm_model.cv(param)
@@ -147,8 +145,7 @@ The follow code is the Python demo:
     #  1. learning rate: 0.2
     #  2. regular lambda: 0.002
     #  4. evaluation metric: rmse
-    param = {'task':'reg', 'lr':0.2, 
-             'lambda':0.002, 'metric':'rmse'}
+    param = {'task':'reg', 'lr':0.2, 'lambda':0.002, 'metric':'rmse'}
 
     # Use cross-validation
     ffm_model.cv(param)
