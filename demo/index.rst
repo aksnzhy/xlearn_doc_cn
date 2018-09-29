@@ -13,7 +13,7 @@ However, its data and methods are usually kept under lock and key. In this resea
 sharing a week’s worth of data for you to develop models predicting ad click-through rate (CTR). Given a user 
 and the page he is visiting, what is the probability that he will click on a given ad?
 
-You can find the data used in this demo in the path ``/demo/classification/criteo_ctr/``.
+样例数据在： ``/demo/classification/criteo_ctr/``.
 
 The follow code is the Python demo:
 
@@ -56,7 +56,7 @@ or of unknown edibility and not recommended. This latter class was combined with
 states that there is no simple rule for determining the edibility of a mushroom; no rule like *leaflets three, let it be*
 for Poisonous Oak and Ivy.
 
-You can find a small portion of data used in this demo in the path ``/demo/classification/mushroom/``.
+样例数据在： ``/demo/classification/mushroom/``.
 
 The follow code is the Python demo:
 
@@ -128,7 +128,7 @@ Housing dataset was compiled by Dean De Cock for use in data science education. 
 for data scientists looking for a modernized and expanded version of the often cited Boston 
 Housing dataset. (`链接`__)
 
-You can find the data used in this demo in the path ``/demo/regression/house_price/``.
+样例数据在： ``/demo/regression/house_price/``.
 
 The follow code is the Python demo:
 
