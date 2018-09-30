@@ -381,6 +381,8 @@ Instance-Wise 归一化
 
   ./xlearn_train ./small_train.txt -s 1 -v ./small_test.txt --no-norm
 
+注意，如果在训练过程中使用了 Instance-Wise 归一化，用户需要在预测过程中同样使用该功能。
+
 Quiet Model 安静模式
 ----------------------------------------
 
