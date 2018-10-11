@@ -107,6 +107,9 @@ xLearn API 列表总览
 
   --sigmoid                :  Converting output result to 0 ~ 1 (problebility).
 
+  --no-norm                :  Disable instance-wise normalization. By default, xLearn will use instance-wise 
+                              normalization in both training and prediction processes.
+
 Python 接口
 ------------------------------
 
