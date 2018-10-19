@@ -48,6 +48,10 @@ xLearn 大规模机器学习
 
 这一次，每一个 epoch 的训练时间变成了 ``1.8`` 秒。我们还可以通过 ``-block`` 选项来设置外存计算的内存 block 大小 （MB）。
 
+用户同样可以在预测任务中使用 ``--disk`` 选项，例如: ::
+
+    ./xlearn_predict ./big_data_test.txt ./big_data.txt.model --disk
+
 Python 接口
 ===================================================
 
