@@ -88,7 +88,11 @@ Python 接口
     # The output result will be stored in output.txt
     ffm_model.predict("./model.out", "./output.txt")
 
-用户还可以通过 ``block_size`` 参数来设置外存计算的内存 block 大小 （MB）。
+用户还可以通过 ``block_size`` 参数来设置外存计算的内存 block 大小 （MB), 例如: ::
+
+    ./xlearn_train ./big_data.txt -s 2 -block 1000 --disk
+
+如上所示, 我们将 block size 设置为 ``1000MB``. 在默认的情况下, 这个值会被设置为 ``500``.
 
 R 接口
 ===================================================
