@@ -212,6 +212,20 @@ FFM: ::
      0   0:0:0.2   1:2:0.3   2:5:0.1   ...
      1   0:0:0.2   1:2:0.3   2:5:0.1   ...
 
+xLearn 还可以使用 ``,`` 作为数据的分隔符，例如: ::
+
+  libsvm format:
+
+     label,index_1:value_1,index_2:value_2 ... index_n:value_n
+
+  CSV format:
+
+     label,value_1,value_2 .. value_n
+
+  libffm format:
+
+     label,field_1:index_1:value_1,field_2:index_2:value_2 ...
+
 注意，如果输入的 csv 文件里不含 ``y`` 值，用户必须手动向其每一行数据添加一个占位符 (同样针对测试数据)。否则，xLearn 会将第一个元素视为 ``y``.
 
 LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的 ``field`` 项并将其视为 ``libsvm`` 格式。
