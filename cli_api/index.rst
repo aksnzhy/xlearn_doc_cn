@@ -366,7 +366,10 @@ Cross-Validation (交叉验证)
 
    ./xlearn_train ./small_train.txt -nthread 2
 
-上述命令指定使用 2 个 CPU Core 来进行模型训练。如果用户不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。
+上述命令指定使用 2 个 CPU Core 来进行模型训练。如果用户不设置该选项，xLearn 在默认情况下会使用全部的 CPU 核心进行计算。xLearn 会显示当前使用线程数量的情况: ::
+
+    [------------] xLearn uses 2 threads for training task.
+    [ ACTION     ] Read Problem ...
 
 用户可以通过设置 ``--dis-lock-free`` 选项禁止多核无锁学习: ::
 
