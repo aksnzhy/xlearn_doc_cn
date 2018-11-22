@@ -175,6 +175,22 @@ FFM: ::
   v_3_2: 0.109711 0.102996 0.227222 0.248076
   v_3_3: 0.144264 0.0409806 0.17463 0.083712
 
+在线学习
+----------------------------------------
+xLearn 提供在线学习的功能，即 xLearn 可以加载之前预训练过的模型继续学习。用户可以通过 ``setPreModel()`` API 来指定预先训练过的模型文件路径。例如: ::
+
+  import xlearn as xl
+
+   ffm_model = xl.create_ffm()
+   ffm_model.setTrain("./small_train.txt")
+   ffm_model.setValidate("./small_test.txt")  
+   ffm_model.setPreModel("./pre_model")
+   param = {'task':'binary', 'lr':0.2, 'lambda':0.002} 
+            
+   ffm_model.fit(param, "./model.out") 
+
+注意，xLearn 只能加载二进制预训练模型，不能加载 TXT 文本模型。
+
 选择机器学习算法
 ----------------------------------------
 
