@@ -136,7 +136,7 @@ xLearn 提供在线学习的功能，即 xLearn 可以加载之前预训练过�
 
   ./xlearn_train ./small_train.txt -s 0 -pre ./pre_model
 
-注意，xLearn 只能加载二进制预训练模型，不能加载 TXT 文本模型。
+注意，xLearn 只能加载二进制预训练模型，不能加载 TXT 格式的文本模型。
 
 预测结果的输出
 ----------------------------------------
