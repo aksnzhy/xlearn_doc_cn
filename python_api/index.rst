@@ -114,10 +114,8 @@ xLearn 支持简单易用的 Python 接口。在使用之前，请确保你已�
 
 用户还可以通过 ``setTXTModel()`` API 将模型输出成人类可读的 ``TXT`` 格式，例如: ::
 
-    ffm_model.setSign()
     ffm_model.setTXTModel("./model.txt")
-    ffm_model.setTest("./small_test.txt")  
-    ffm_model.predict("./model.out", "./output.txt")
+    ffm_model.fit(param, "./model.out")
 
 运行上述命令后，我们发现在当前文件夹下生成了一个新的文件 ``model.txt``，这个文件存储着 ``TXT`` 格式的输出模型: ::
 
@@ -189,7 +187,7 @@ xLearn 提供在线学习的功能，即 xLearn 可以加载之前预训练过�
             
    ffm_model.fit(param, "./model.out") 
 
-注意，xLearn 只能加载二进制预训练模型，不能加载 TXT 格式文本模型。
+注意，xLearn 只能加载二进制预训练模型，不能加载 TXT 格式的文本模型。
 
 选择机器学习算法
 ----------------------------------------
