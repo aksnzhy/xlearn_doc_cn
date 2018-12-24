@@ -94,6 +94,7 @@ Python 样例
    cli_api/index
    python_api/index
    R_api/index
+   tune/index
    all_api/index
    large/index
    demo/index
