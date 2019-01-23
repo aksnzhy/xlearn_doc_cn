@@ -284,9 +284,9 @@ LR 和 FM 算法的输入可以是 ``libffm`` 格式，xLearn 会忽略其中的
 
 对于回归任务而言，评价指标包括：``mae``, ``mape``, 以及 ``rmsd`` (或者叫作 ``rmse``)，例如: ::
 
-   param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'rmse'}
-   param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'mae'}    
-   param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'metric': 'mape'}  
+   param = {'task':'reg', 'lr':0.2, 'lambda':0.002, 'metric': 'rmse'}
+   param = {'task':'reg', 'lr':0.2, 'lambda':0.002, 'metric': 'mae'}    
+   param = {'task':'reg', 'lr':0.2, 'lambda':0.002, 'metric': 'mape'}  
 
 Cross-Validation (交叉验证)
 ----------------------------------------
