@@ -1,29 +1,26 @@
-Installation Guide for Windows
+Windows 安装指南
 ----------------------------------
 
-For now, xLearn can support Windows. This page gives instructions on how to build and install the xLearn from source code on Windows. Before starting,  make sure that your Windows has already installed  ``Visual Studio 2017`` and ``CMake``. 
+xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 Windows 平台安装并使用 xLearn 库。
 
-Install Visual Studio 2017
+安装 Visual Studio 2017
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-*If you have already installed your C++ compiler before, you can skip this step.*
-
-Download Visual Studio ``vs_xxxx_xxxx.exe`` from https://visualstudio.microsoft.com/downloads/, then you can follow the VS2017 install guide
-https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2017. Users should make sure that choose the c++
-development tools when install VS2017.
+*如果你的 Windows 系统已经安装过 Visual studio，你可以跳过这一步。*
  
-Install CMake
+从 https://visualstudio.microsoft.com/downloads/ 下载你所需要的 Visual studio （``vs_xxxx_xxxx.exe``）。之后，你可以通过 VS 的安装说明 （https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2017.）进行安装。
+
+安装 CMake
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-*If you have already installed CMake before, you can skip this step.*
+*如果你的系统已经安装了 CMake，你可以跳过这一步*
 
-Download latest(at least v3.10) package for windows from https://cmake.org/download/ and then install it. whether you choose ``.msi`` or ``.zip`` package, 
-you should make sure that cmake is added to your system path.
+从这里 https://cmake.org/download/ 下载最新版本 (至少 v3.10) CMake。请确保安装 CMake 后将其路径正确添加到你的系统路径。
 
-Install xLearn from Source Code
+从源码安装 xLearn
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Building xLearn from source code consists two steps:
+从源码安装 xLearn 包括了两个步骤：
 
 First, you need to build the executable files (``xlearn_train.exe`` and ``xlearn_predict.exe``), as well as the 
 shared library (``xlearn_api.dll`` for Windows) from the C++ code. After that, users need to install the xLearn Python Package.
