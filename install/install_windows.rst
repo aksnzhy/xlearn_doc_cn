@@ -22,13 +22,12 @@ xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 
 
 从源码安装 xLearn 包括了两个步骤：
 
-First, you need to build the executable files (``xlearn_train.exe`` and ``xlearn_predict.exe``), as well as the 
-shared library (``xlearn_api.dll`` for Windows) from the C++ code. After that, users need to install the xLearn Python Package.
+首先你需要编译源码得到两个可执行文件：``xlearn_train.exe`` 和 ``xlearn_predict.exe``，并且得到动态链接库 ``xlearn_api.dll``。 之后，需要安装 xLearn Python 包。
 
-Build from Source Code
+编译源代码
 =======================
-First, users should enter DOS as Administrator. 
-Then, users need to clone the code from github: ::
+
+用户进入 DOS 控制台，输入命令: ::
 
   git clone https://github.com/aksnzhy/xlearn.git
 
@@ -39,18 +38,18 @@ Then, users need to clone the code from github: ::
   "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
   MSBuild xLearn.sln /p:Configuration=Release
   
-**Note:** You should replace this path ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat"``
-to yourself installation path of VS2017.
+**注意:** 你需要将路径 ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat"``
+替换成你自己的 VS 安装路径.
 
-Suppose you install the VS Community version, the path should be ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"``
-if you install it in default path.
+例如，默认请款下 VS 的路径为 ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"``.
 
-If the building is successful, users can find two executable files (``xlearn_train.exe`` and ``xlearn_predict.exe``) in the ``build\Release`` path. 
-Users can test the installation by using the following command: ::
+如果安装成果, 用户可以在 `build\Release`` 路径下看到 ``xlearn_train.exe`` 和 ``xlearn_predict.exe`` 两个可执行文件。
+
+用户可以通过如下命令进行测试: ::
 
   run_example.bat
 
-Install Python Package
+安装 Python 包
 =======================
 
 Then, you can install the Python package through ``install-python.sh``: ::
