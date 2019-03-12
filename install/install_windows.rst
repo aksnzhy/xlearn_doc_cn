@@ -52,40 +52,32 @@ xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 
 安装 Python 包
 =======================
 
-Then, you can install the Python package through ``install-python.sh``: ::
+用户可以通过如下命令安装 Python 包: ::
 
   cd python-package
   python setup.py install 
 
-You can also test the Python package by using the following command: ::
+然后通过如下命令对安装进行测试: ::
 
   cd ../
   python test_python.py
 
-One-Button Building
+一键安装
 =======================
 
-We have already write a script ``build.bat`` to do all the cumbersome work for users, and users can just use the folloing commands: ::
+用户可以通过 ``build.bat`` 脚本来对 xLearn 进行一键安装: ::
 
   git clone https://github.com/aksnzhy/xlearn.git
 
   cd xlearn
   build.bat
 
-You should make sure that you enter DOS as Administrator.
-
-Install xLearn from pip
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-We will update Python package for Windows soon later.
-
-The installation process will take a while to complete. 
-After that, you can type the following script in your python shell to check whether the xLearn has been installed successfully: ::
+用户可以通过如下命令检查是 xLearn 是否安装成功: ::
 
   >>> import xlearn as xl
   >>> xl.hello()
 
-You will see the following message if the installation is successful: ::
+如果安装成功，你可以看到: ::
 
   -------------------------------------------------------------------------
            _
