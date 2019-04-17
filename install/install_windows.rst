@@ -85,6 +85,16 @@ There are three vs project in this solution: xlearn_train, xlearn_test, xlearn_a
   cd xlearn
   build.bat
 
+Install xLearn from pip
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+我们现在提供了windows平台下的二进制Python包，它支持64位Python的一下版本：``2.7, 3.4, 3.5, 3.6, 3.7``。
+
+用户可以从 release_ 栏（xLearn项目主页）下载，然后用``pip``命令安装下载下来的后缀为``.whl``的二进制安装包文件。
+
+.. _release: https://github.com/aksnzhy/xlearn/releases
+
+
 用户可以通过如下命令检查是 xLearn 是否安装成功: ::
 
   >>> import xlearn as xl
@@ -100,5 +110,5 @@ There are three vs project in this solution: xlearn_train, xlearn_test, xlearn_a
       >  <| |___|  __/ (_| | |  | | | |
      /_/\_\_____/\___|\__,_|_|  |_| |_|
 
-        xLearn   -- 0.42 Version --
+        xLearn   -- 0.43 Version --
   -------------------------------------------------------------------------
