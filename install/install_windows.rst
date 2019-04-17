@@ -90,7 +90,7 @@ There are three vs project in this solution: xlearn_train, xlearn_test, xlearn_a
 
 我们现在提供了windows平台下的二进制Python包，它支持64位Python的一下版本：``2.7, 3.4, 3.5, 3.6, 3.7``。
 
-用户可以从 release_ 栏（xLearn项目主页）下载，然后用``pip``命令安装下载下来的后缀为``.whl``的二进制安装包文件。
+用户可以从 release_ 栏（xLearn项目主页）下载，然后用 ``pip`` 命令安装下载下来的后缀为 ``.whl`` 的二进制安装包文件。
 
 .. _release: https://github.com/aksnzhy/xlearn/releases
 
