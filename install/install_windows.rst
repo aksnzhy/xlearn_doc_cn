@@ -41,13 +41,26 @@ xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 
 **注意:** 你需要将路径 ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat"``
 替换成你自己的 VS 安装路径.
 
-例如，默认请款下 VS 的路径为 ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"``.
+例如，默认情况下 VS 的路径为 ``"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"``.
 
 如果安装成果, 用户可以在 `build\Release`` 路径下看到 ``xlearn_train.exe`` 和 ``xlearn_predict.exe`` 两个可执行文件。
 
 用户可以通过如下命令进行测试: ::
 
   run_example.bat
+
+从 Visual Studio解决方案编译源码
+=======================
+这个编译方法是上面“编译源码”方法的一个备用选择，如果你已经使用上面方法进行编译，你可以跳过这个部分。
+
+我们为用户提供了Visual Studio解决方案，这些文件在xLearn项目根目录的windows目录下面，用户可以直接使用``xLearn.sln``进行源代码。
+
+There are three vs project in this solution: xlearn_train, xlearn_test, xlearn_api, respectively relation to build executable train,predict entry program and DLL(dynamic link library) API for windows.
+这个解决方案包括三个项目：``xlearn_train``, ``xlearn_test``, ``xlearn_api``，分别对应产生xLearn的训练、预测的可执行文件和动态链接库。
+
+用户需要保证所使用的VS的工具平台版本在v141及其之上。
+
+**注意：** 从这个解决方案编译得到的可执行文件和动态链接库会和使用cmake构建、编译得到的有所不同，这是因为它们构建结构不相同。
 
 安装 Python 包
 =======================
@@ -72,6 +85,16 @@ xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 
   cd xlearn
   build.bat
 
+从pip安装
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+我们现在提供了windows平台下的二进制Python包，它支持64位Python的一下版本：``2.7, 3.4, 3.5, 3.6, 3.7``。
+
+用户可以从 release_ 栏（xLearn项目主页）下载，然后用 ``pip`` 命令安装下载下来的后缀为 ``.whl`` 的二进制安装包文件。
+
+.. _release: https://github.com/aksnzhy/xlearn/releases
+
+
 用户可以通过如下命令检查是 xLearn 是否安装成功: ::
 
   >>> import xlearn as xl
@@ -87,5 +110,5 @@ xLearn 支持 Windows 平台的安装和使用。本小节主要介绍如何在 
       >  <| |___|  __/ (_| | |  | | | |
      /_/\_\_____/\___|\__,_|_|  |_| |_|
 
-        xLearn   -- 0.42 Version --
+        xLearn   -- 0.43 Version --
   -------------------------------------------------------------------------
