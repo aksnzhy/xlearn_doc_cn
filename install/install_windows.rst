@@ -110,5 +110,5 @@ There are three vs project in this solution: xlearn_train, xlearn_test, xlearn_a
       >  <| |___|  __/ (_| | |  | | | |
      /_/\_\_____/\___|\__,_|_|  |_| |_|
 
-        xLearn   -- 0.43 Version --
+        xLearn   -- 0.44 Version --
   -------------------------------------------------------------------------
