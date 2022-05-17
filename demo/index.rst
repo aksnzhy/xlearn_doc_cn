@@ -6,7 +6,7 @@ xLearn 样例程序
 Criteo 在线广告预估
 ---------------------------
 
-Kaglle 预测广告是否会被用户点击 (`链接`__)
+Kaggle 预测广告是否会被用户点击 (`链接`__)
 
 Display advertising is a billion dollar effort and one of the central uses of machine learning on the Internet. 
 However, its data and methods are usually kept under lock and key. In this research competition, CriteoLabs is 
